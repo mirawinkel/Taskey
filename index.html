@@ -3,9 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Taskey</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
 </head>
+
+
 <body>
+
+    <div class="container-fluid" style="width: 85rem">
+
+        <div id="addTask" class="row h-100 justify-content-center" >
+
+            <div class="col h-10 justify-content-center"></div>
+
+              <button  type="button" class="btn btn-warning" data-toggle="collapse" 
+              data-target="#collapseAddTask" aria-expanded="false" aria-controls="collapseAddTask">Add new task</button>
+              <div class="collapse" id="collapseAddTask">
+                <p>This content's visibility gets toggled</p>
+              </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+          
+
+            <div class="col-3">
+                <div class="card h-500 d-inline-block bg-primary" style="width: 25rem;">
+                    <div class="card-header">Feb 28</div>
+                    <div class="card-body">
+                      <h5 class="card-title">Finish the book</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-danger">Remove Task</a>
+                    </div>
+                    <div class="card-footer bg-white border-primary">Lena</div>
+                </div>
+            </div>
+
+            <div class="col-3">
+                <div class="card h-300 d-inline-block bg-danger" style="width: 25rem;">
+                    <div class="card-header">Jan 15</div>
+                    <div class="card-body">
+                      <h5 class="card-title">Make homework</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-danger">Remove Task</a>
+                    </div>
+                    <div class="card-footer bg-white border-danger">Ashley</div>
+                </div>
+            </div>
+
+            <div class="col-3">
+                <div class="card h-300 d-inline-block bg-primary" style="width: 25rem;">
+                    <div class="card-header">Jan 20</div>
+                    <div class="card-body">
+                      <h5 class="card-title">Buy cat food</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-danger">Remove Task</a>
+                    </div>
+                    <div class="card-footer bg-white border-primary">John</div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <div class="row">
+            
+            <div class="col-4">
+                <div class="card h-500 d-inline-block bg-success" style="width: 25rem;">
+                    <div class="card-header">Jan 14</div>
+                    <div class="card-body">
+                    
+                      <h5 class="card-title">Call Mira</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-danger">Remove Task</a>
+                    </div>
+                    <div class="card-footer bg-white border-success">Lena</div>
+                  </div>
+            </div>
+
+            <div class="col-4">
+                <div class="card h-300 d-inline-block bg-warning" style="width: 25rem;">
+                    <div class="card-header">Feb 1</div>
+                    <div class="card-body">
+                      <h5 class="card-title">Go to bank</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-danger">Remove Task</a>
+                    </div>
+                    <div class="card-footer bg-white border-warning">Lena</div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+      </div>
+      
+
     
 </body>
 </html>

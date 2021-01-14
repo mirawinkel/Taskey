@@ -1,1 +1,32 @@
+html {
+    background-color: blanchedalmond;
+    font-family: "Open Sans", sans-serif;
+    font-size: 50px;
 
+}
+.button {
+    transition-duration: 0.4s;
+    color: orange;
+    border-radius: 8px;
+    margin: 100px auto;
+  }
+  
+  .button:hover {
+    background-color: orange;
+    color: white;
+  }
+
+  #addTask {
+
+
+  }
+
+.container-fluid {
+
+    background-color: blanchedalmond;
+  }
+
+  .bg-primary {
+
+    background-color: cornflowerblue;
+  }
