@@ -12,7 +12,7 @@ html {
   border-radius: 8px;
   margin: 100px auto;
 }
-  
+
 .button:hover {
   background-color: orange;
   color: white;
@@ -69,3 +69,6 @@ input.form-control::placeholder {
   box-shadow: 0 .32rem 10px rgba(0, 0, 0, 0.1);
 }
 
+.cardBackUrgent {
+  background-color: rgb(184, 92, 52)
+}
