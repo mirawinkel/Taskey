@@ -1,32 +1,76 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taskey</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
-</head>
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-
-<body>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
 
     <div class="container-fluid" style="width: 85rem">
+      <div class="row">
+        <div class="col-5">
+          <form>
+            <div class="form-group">
+              <label for="assignedTo">Who is the task assigned to?</label>
+              <input type="text" class="form-control" id="assignedTo" placeholder="Name of person doing the task">
+            </div>
+            <div class="form-group">
+              <label for="taskName">Name of the Task</label>
+              <input type="text" class="form-control" id="taskName" placeholder="Something to do...">
+            </div>
+            <div class="form-group">
+              <label for="taskDescription">Describe the Task Here</label>
+              <textarea class="form-control" id="taskDescription" rows="3" placeholder="Task description..."></textarea>
+            </div>
+            <div class="form-group">
+              <label for="taskStatus">Select Status</label>
+              <select class="form-control" id="taskStatus">
+                <option>To Do</option>
+                <option>In Progress</option>
+                <option>Review</option>
+                <option>Stuck</option>
+                <option>Done</option>
+              </select>
+            </div>
+          </form>
+           <!-- Date Picker Input -->
+           <div class="form-group mb-4">
+              <div class="datepicker date input-group p-0 shadow-sm">
+                 <input type="text" placeholder="Choose a task completion date" class="form-control py-4 px-4" id="reservationDate">
+                   <div class="input-group-append"><span class="input-group-text px-4"><i class="fa fa-clock-o"></i></span></div>
+                    </div>
+                  </div><!-- DEnd ate Picker Input -->
+        
+                    <!-- For Demo Purpose -->
+                  <div class="text-center">
+                   <p class="font-italic text-muted mb-0">Task Completion Date Is</p>
+                   <h4 id="pickedDate" class="font-weight-bold text-uppercase mb-3">Not set yet</h4>
+                   <a href="#" class="btn btn-primary btn-sm px-4 rounded-pill text-uppercase font-weight-bold shadow-sm">Confirm Task</a>
+                  </div>
+                </div>
+            </div>
+        </div>
+        </div>
+      </div>
+
 
         <div id="addTask" class="row h-100 justify-content-center" >
 
             <div class="col h-10 justify-content-center"></div>
-
+<!--
               <button  type="button" class="btn btn-warning" data-toggle="collapse" 
-              data-target="#collapseAddTask" aria-expanded="false" aria-controls="collapseAddTask">Add new task</button>
+              data-target="#collapseAddTask" aria-expanded="false" aria-controls="collapseAddTask">Add new task</button>-->
               <div class="collapse" id="collapseAddTask">
                 <p>This content's visibility gets toggled</p>
               </div>
             </div>
         </div>
-
+      
         <div class="row">
 
           
@@ -73,7 +117,7 @@
 
         <div class="row">
             
-            <div class="col-4">
+            <div class="col-3">
                 <div class="card h-500 d-inline-block bg-success" style="width: 25rem;">
                     <div class="card-header">Jan 14</div>
                     <div class="card-body">
@@ -86,7 +130,7 @@
                   </div>
             </div>
 
-            <div class="col-4">
+            <div class="col-3">
                 <div class="card h-300 d-inline-block bg-warning" style="width: 25rem;">
                     <div class="card-header">Feb 1</div>
                     <div class="card-body">
@@ -105,7 +149,10 @@
 
       </div>
       
-
-    
-</body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
 </html>

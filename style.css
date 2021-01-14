@@ -30,3 +30,37 @@ html {
 
     background-color: cornflowerblue;
   }
+  .datepicker td, .datepicker th {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 0.85rem;
+}
+
+.datepicker {
+    margin-bottom: 3rem;
+}
+.input-group {
+  border-radius: 30rem;
+}
+
+input.form-control {
+  border-radius: 30rem 0 0 30rem;
+  border: none;
+}
+
+input.form-control:focus {
+  box-shadow: none;
+}
+
+input.form-control::placeholder {
+  font-style: italic;
+}
+
+.input-group-text {
+  border-radius: 0 30rem 30rem 0;
+  border: none;
+}
+
+.datepicker-dropdown {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
