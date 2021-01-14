@@ -8,6 +8,24 @@
     <link rel="stylesheet" href="./style.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script>
+      $(function () {
+
+        // INITIALIZE DATEPICKER PLUGIN
+        $('.datepicker').datepicker({
+            clearBtn: true,
+            format: "dd/mm/yyyy"
+        });
+    
+    
+        // FOR DEMO PURPOSE
+        $('#reservationDate').on('change', function () {
+            var pickedDate = $('input').val();
+            $('#pickedDate').html(pickedDate);
+        });
+    });
+    </script>
   </head>
   <body>
 
@@ -37,14 +55,15 @@
                 <option>Done</option>
               </select>
             </div>
-          </form>
-           <!-- Date Picker Input -->
-           <div class="form-group mb-4">
-            <label for="DueDate">Date Due</label>
-              <div class="datepicker date input-group p-0 shadow-sm">
-                
-                 <input type="text" placeholder="Choose a task completion date" class="form-control py-4 px-4" id="DueDate">
-                   <div class="input-group-append"><span class="input-group-text px-4"><i class="fa fa-clock-o"></i></span></div>
+            
+              <div class="py text-center"><i class="fa fa-calendar fa-5x"></i></div>
+                <!-- Date Picker Input -->
+                <div class="form-group mb-4">
+                  <label for="DueDate">Date Due</label>
+                  <div class="datepicker date input-group p-0 shadow-sm">
+                      
+                    <input type="text"   placeholder="Choose a task  completion date" class="form-control py-4 px-4" id="DueDate">
+                    <div class="input-group-append"><span class="input-group-text px-4"><i class="fa fa-clock-o"></i></span>
                     </div>
                   </div>
                   <div class="text-center">
@@ -53,9 +72,11 @@
                    <a href="#" class="btn btn-warning btn-sm px-4 rounded-pill text-uppercase font-weight-bold shadow-sm">Add Task</a>
                   </div>
                 </div>
-            </div>
+              </div>
+            
+          </form>
         </div>
-        </div>
+
       </div>
 
 
@@ -331,21 +352,6 @@
 
 
       </div>
-      $(function () {
-
-        // INITIALIZE DATEPICKER PLUGIN
-        $('.datepicker').datepicker({
-            clearBtn: true,
-            format: "dd/mm/yyyy"
-        });
-    
-    
-        // FOR DEMO PURPOSE
-        $('#reservationDate').on('change', function () {
-            var pickedDate = $('input').val();
-            $('#pickedDate').html(pickedDate);
-        });
-    });
       
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

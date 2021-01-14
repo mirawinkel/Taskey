@@ -1,33 +1,23 @@
-
 html {
    
-    font-family: "Open Sans", sans-serif;
-    font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
 
 }
 
 
 .button {
-    transition-duration: 0.4s;
-    color: orange;
-    border-radius: 8px;
-    margin: 100px auto;
-  }
-  
-  .button:hover {
-    background-color: orange;
-    color: white;
-  }
-
-  #addTask {
-
-
-  }
-
-.container-fluid {
-
-;
+  transition-duration: 0.4s;
+  color: orange;
+  border-radius: 8px;
+  margin: 100px auto;
 }
+  
+.button:hover {
+  background-color: orange;
+  color: white;
+}
+
 .formContainer {
 
   height: 44rem;
