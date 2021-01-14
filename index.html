@@ -5,31 +5,31 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <link rel="stylesheet" href="./style.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
 
     <div class="container-fluid" style="width: 85rem">
-      <div class="row">
-        <div class="col-5">
+      <div class="row justify-content-center">
+        <div class="col-6 formContainer">
           <form>
-            <div class="form-group">
-              <label for="assignedTo">Who is the task assigned to?</label>
-              <input type="text" class="form-control" id="assignedTo" placeholder="Name of person doing the task">
+            <div class="form-group topItem">
+              <label for="Name">Who is the task assigned to?</label>
+              <input type="text" class="form-control" id="Name" placeholder="Name of person doing the task">
             </div>
             <div class="form-group">
               <label for="taskName">Name of the Task</label>
               <input type="text" class="form-control" id="taskName" placeholder="Something to do...">
             </div>
             <div class="form-group">
-              <label for="taskDescription">Describe the Task Here</label>
-              <textarea class="form-control" id="taskDescription" rows="3" placeholder="Task description..."></textarea>
+              <label for="Description">Describe the Task Here</label>
+              <textarea class="form-control" id="Description" rows="3" placeholder="Task description..."></textarea>
             </div>
             <div class="form-group">
-              <label for="taskStatus">Select Status</label>
-              <select class="form-control" id="taskStatus">
+              <label for="Status">Select Status</label>
+              <select class="form-control" id="Status">
                 <option>To Do</option>
                 <option>In Progress</option>
                 <option>Review</option>
@@ -40,17 +40,17 @@
           </form>
            <!-- Date Picker Input -->
            <div class="form-group mb-4">
+            <label for="DueDate">Date Due</label>
               <div class="datepicker date input-group p-0 shadow-sm">
-                 <input type="text" placeholder="Choose a task completion date" class="form-control py-4 px-4" id="reservationDate">
+                
+                 <input type="text" placeholder="Choose a task completion date" class="form-control py-4 px-4" id="DueDate">
                    <div class="input-group-append"><span class="input-group-text px-4"><i class="fa fa-clock-o"></i></span></div>
                     </div>
-                  </div><!-- DEnd ate Picker Input -->
-        
-                    <!-- For Demo Purpose -->
+                  </div>
                   <div class="text-center">
                    <p class="font-italic text-muted mb-0">Task Completion Date Is</p>
-                   <h4 id="pickedDate" class="font-weight-bold text-uppercase mb-3">Not set yet</h4>
-                   <a href="#" class="btn btn-primary btn-sm px-4 rounded-pill text-uppercase font-weight-bold shadow-sm">Confirm Task</a>
+                   <h4 id="DueDate" class="font-weight-bold text-uppercase mb-3">Not set yet</h4>
+                   <a href="#" class="btn btn-warning btn-sm px-4 rounded-pill text-uppercase font-weight-bold shadow-sm">Add Task</a>
                   </div>
                 </div>
             </div>
@@ -59,88 +59,271 @@
       </div>
 
 
-        <div id="addTask" class="row h-100 justify-content-center" >
 
-            <div class="col h-10 justify-content-center"></div>
-<!--
-              <button  type="button" class="btn btn-warning" data-toggle="collapse" 
-              data-target="#collapseAddTask" aria-expanded="false" aria-controls="collapseAddTask">Add new task</button>-->
+        <div class="row justify-content-center" id="addTask"  >
+
+            <div class="col justify-content-center"></div>
+            <!--
+              <button  type="button" class="btn" data-toggle="collapse" 
+              data-target="#collapseAddTask" aria-expanded="false" aria-controls="collapseAddTask">Add new task</button>
               <div class="collapse" id="collapseAddTask">
                 <p>This content's visibility gets toggled</p>
+                
+
+
+
+              -->
               </div>
             </div>
         </div>
       
         <div class="row">
+          <div class="card-columns cardContainer ">
+              <div class="col-3">
+                  <div class="card d-inline-block bg-primary" style="width: 25rem;">
+                      <div class="card-header">Feb 28</div>
+                      <div class="card-body">
+                        <h5 class="card-title">Finish the book</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-danger">Remove Task</a>
+                      </div>
+                      <div class="card-footer bg-white border-primary">Lena</div>
+                  </div>
+              </div>
 
-          
+              <div class="col-3">
+                  <div class="card d-inline-block bg-danger" style="width: 25rem;">
+                      <div class="card-header">Jan 15</div>
+                      <div class="card-body">
+                        <h5 class="card-title">Make homework</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-danger">Remove Task</a>
+                      </div>
+                      <div class="card-footer bg-white border-danger">Ashley</div>
+                  </div>
+              </div>
 
-            <div class="col-3">
-                <div class="card h-500 d-inline-block bg-primary" style="width: 25rem;">
-                    <div class="card-header">Feb 28</div>
-                    <div class="card-body">
-                      <h5 class="card-title">Finish the book</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-danger">Remove Task</a>
-                    </div>
-                    <div class="card-footer bg-white border-primary">Lena</div>
+                <div class="col-3">
+                  <div class="card d-inline-block bg-primary" style="width: 25rem;">
+                      <div class="card-header">Jan 20</div>
+                      <div class="card-body">
+                        <h5 class="card-title">Buy cat food</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-danger">Remove Task</a>
+                      </div>
+                      <div class="card-footer bg-white border-primary">John</div>
+                  </div>
                 </div>
-            </div>
-
-            <div class="col-3">
-                <div class="card h-300 d-inline-block bg-danger" style="width: 25rem;">
-                    <div class="card-header">Jan 15</div>
-                    <div class="card-body">
-                      <h5 class="card-title">Make homework</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-danger">Remove Task</a>
+                <div class="col-3">
+                  <div class="card d-inline-block bg-warning" style="width: 25rem;">
+                      <div class="card-header">Feb 1</div>
+                      <div class="card-body">
+                        <h5 class="card-title">Work on Homework</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-danger">Remove Task</a>
+                      </div>
+                      <div class="card-footer bg-white border-warning">Lena</div>
+                  </div>
+              </div>
+  
+  
+                <div class="col-3">
+                    <div class="card d-inline-block bg-warning" style="width: 25rem;">
+                        <div class="card-header">Feb 1</div>
+                        <div class="card-body">
+                          <h5 class="card-title">Go to bank</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a href="#" class="btn btn-danger">Remove Task</a>
+                        </div>
+                        <div class="card-footer bg-white border-warning">Lena</div>
                     </div>
-                    <div class="card-footer bg-white border-danger">Ashley</div>
                 </div>
-            </div>
-
-            <div class="col-3">
-                <div class="card h-300 d-inline-block bg-primary" style="width: 25rem;">
-                    <div class="card-header">Jan 20</div>
-                    <div class="card-body">
-                      <h5 class="card-title">Buy cat food</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-danger">Remove Task</a>
+                <div class="col-3">
+                  <div class="card d-inline-block bg-success" style="width: 25rem;">
+                      <div class="card-header">Jan 14</div>
+                      <div class="card-body">
+                      
+                        <h5 class="card-title">Call Mira</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-danger">Remove Task</a>
+                      </div>
+                      <div class="card-footer bg-white border-success">Lena</div>
                     </div>
-                    <div class="card-footer bg-white border-primary">John</div>
                 </div>
-            </div>
+                <div class="col-3">
+                  <div class="card d-inline-block bg-primary" style="width: 25rem;">
+                      <div class="card-header">Feb 28</div>
+                      <div class="card-body">
+                        <h5 class="card-title">Finish the book</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-danger">Remove Task</a>
+                      </div>
+                      <div class="card-footer bg-white border-primary">Lena</div>
+                  </div>
+              </div>
 
+              <div class="col-3">
+                  <div class="card d-inline-block bg-danger" style="width: 25rem;">
+                      <div class="card-header">Jan 15</div>
+                      <div class="card-body">
+                        <h5 class="card-title">Make homework</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-danger">Remove Task</a>
+                      </div>
+                      <div class="card-footer bg-white border-danger">Ashley</div>
+                  </div>
+              </div>
+
+                <div class="col-3">
+                  <div class="card d-inline-block bg-primary" style="width: 25rem;">
+                      <div class="card-header">Jan 20</div>
+                      <div class="card-body">
+                        <h5 class="card-title">Buy cat food</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-danger">Remove Task</a>
+                      </div>
+                      <div class="card-footer bg-white border-primary">John</div>
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="card d-inline-block bg-warning" style="width: 25rem;">
+                      <div class="card-header">Feb 1</div>
+                      <div class="card-body">
+                        <h5 class="card-title">Work on Homework</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-danger">Remove Task</a>
+                      </div>
+                      <div class="card-footer bg-white border-warning">Lena</div>
+                  </div>
+              </div>
+  
+  
+                <div class="col-3">
+                    <div class="card d-inline-block bg-warning" style="width: 25rem;">
+                        <div class="card-header">Feb 1</div>
+                        <div class="card-body">
+                          <h5 class="card-title">Go to bank</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a href="#" class="btn btn-danger">Remove Task</a>
+                        </div>
+                        <div class="card-footer bg-white border-warning">Lena</div>
+                    </div>
+                </div>
+                <div class="col-3">
+                  <div class="card d-inline-block bg-success" style="width: 25rem;">
+                      <div class="card-header">Jan 14</div>
+                      <div class="card-body">
+                      
+                        <h5 class="card-title">Call Mira</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-danger">Remove Task</a>
+                      </div>
+                      <div class="card-footer bg-white border-success">Lena</div>
+                    </div>
+                </div>
+                <div class="col-3">
+                  <div class="card d-inline-block bg-primary" style="width: 25rem;">
+                      <div class="card-header">Feb 28</div>
+                      <div class="card-body">
+                        <h5 class="card-title">Finish the book</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-danger">Remove Task</a>
+                      </div>
+                      <div class="card-footer bg-white border-primary">Lena</div>
+                  </div>
+              </div>
+
+              <div class="col-3">
+                  <div class="card d-inline-block bg-danger" style="width: 25rem;">
+                      <div class="card-header">Jan 15</div>
+                      <div class="card-body">
+                        <h5 class="card-title">Make homework</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-danger">Remove Task</a>
+                      </div>
+                      <div class="card-footer bg-white border-danger">Ashley</div>
+                  </div>
+              </div>
+
+                <div class="col-3">
+                  <div class="card d-inline-block bg-primary" style="width: 25rem;">
+                      <div class="card-header">Jan 20</div>
+                      <div class="card-body">
+                        <h5 class="card-title">Buy cat food</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-danger">Remove Task</a>
+                      </div>
+                      <div class="card-footer bg-white border-primary">John</div>
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="card d-inline-block bg-warning" style="width: 25rem;">
+                      <div class="card-header">Feb 1</div>
+                      <div class="card-body">
+                        <h5 class="card-title">Work on Homework</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-danger">Remove Task</a>
+                      </div>
+                      <div class="card-footer bg-white border-warning">Lena</div>
+                  </div>
+              </div>
+  
+  
+                <div class="col-3">
+                    <div class="card d-inline-block bg-warning" style="width: 25rem;">
+                        <div class="card-header">Feb 1</div>
+                        <div class="card-body">
+                          <h5 class="card-title">Go to bank</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a href="#" class="btn btn-danger">Remove Task</a>
+                        </div>
+                        <div class="card-footer bg-white border-warning">Lena</div>
+                    </div>
+                </div>
+                <div class="col-3">
+                  <div class="card d-inline-block bg-success" style="width: 25rem;">
+                      <div class="card-header">Jan 14</div>
+                      <div class="card-body">
+                      
+                        <h5 class="card-title">Call Mira</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-danger">Remove Task</a>
+                      </div>
+                      <div class="card-footer bg-white border-success">Lena</div>
+                    </div>
+                </div>
+                <div class="col-3">
+                  <div class="card d-inline-block bg-primary" style="width: 25rem;">
+                      <div class="card-header">Feb 28</div>
+                      <div class="card-body">
+                        <h5 class="card-title">Finish the book</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-danger">Remove Task</a>
+                      </div>
+                      <div class="card-footer bg-white border-primary">Lena</div>
+                  </div>
+              </div>
+
+              <div class="col-3">
+                  <div class="card d-inline-block bg-danger" style="width: 25rem;">
+                      <div class="card-header">Jan 15</div>
+                      <div class="card-body">
+                        <h5 class="card-title">Make homework</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-danger">Remove Task</a>
+                      </div>
+                      <div class="card-footer bg-white border-danger">Ashley</div>
+                  </div>
+              </div>
+          </div>
+        </div>
 
         </div>
 
 
         <div class="row">
             
-            <div class="col-3">
-                <div class="card h-500 d-inline-block bg-success" style="width: 25rem;">
-                    <div class="card-header">Jan 14</div>
-                    <div class="card-body">
-                    
-                      <h5 class="card-title">Call Mira</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-danger">Remove Task</a>
-                    </div>
-                    <div class="card-footer bg-white border-success">Lena</div>
-                  </div>
-            </div>
-
-            <div class="col-3">
-                <div class="card h-300 d-inline-block bg-warning" style="width: 25rem;">
-                    <div class="card-header">Feb 1</div>
-                    <div class="card-body">
-                      <h5 class="card-title">Go to bank</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-danger">Remove Task</a>
-                    </div>
-                    <div class="card-footer bg-white border-warning">Lena</div>
-                </div>
-            </div>
+            
 
 
         </div>
@@ -148,6 +331,21 @@
 
 
       </div>
+      $(function () {
+
+        // INITIALIZE DATEPICKER PLUGIN
+        $('.datepicker').datepicker({
+            clearBtn: true,
+            format: "dd/mm/yyyy"
+        });
+    
+    
+        // FOR DEMO PURPOSE
+        $('#reservationDate').on('change', function () {
+            var pickedDate = $('input').val();
+            $('#pickedDate').html(pickedDate);
+        });
+    });
       
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

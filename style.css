@@ -1,9 +1,12 @@
+
 html {
-    background-color: blanchedalmond;
+   
     font-family: "Open Sans", sans-serif;
-    font-size: 50px;
+    font-size: 16px;
 
 }
+
+
 .button {
     transition-duration: 0.4s;
     color: orange;
@@ -23,17 +26,28 @@ html {
 
 .container-fluid {
 
-    background-color: blanchedalmond;
-  }
+;
+}
+.formContainer {
 
-  .bg-primary {
+  height: 44rem;
+  margin: 5rem auto;
+  background-color: blanchedalmond
+}
+.topItem {
+  margin-top: 1.5rem;
+}
+.cardContainer {
+  margin: 0 auto
+}
+.bg-primary {
 
     background-color: cornflowerblue;
-  }
-  .datepicker td, .datepicker th {
-    width: 2.5rem;
-    height: 2.5rem;
-    font-size: 0.85rem;
+}
+.datepicker td, .datepicker th {
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 0.85rem;
 }
 
 .datepicker {
@@ -62,5 +76,6 @@ input.form-control::placeholder {
 }
 
 .datepicker-dropdown {
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 .32rem 10px rgba(0, 0, 0, 0.1);
 }
+
