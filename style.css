@@ -23,7 +23,11 @@ html {
 
 #addTaskButton {
 
-  margin: 5rem;
+  margin: 2rem auto 1rem auto;
+  padding: 0.5rem 7rem;
+  font-size: 1.5rem;
+  background-color: rgb(252, 179, 120);
+  border-color: rgb(204, 117, 4);
 
 }
 
@@ -85,4 +89,11 @@ input.form-control::placeholder {
 p {
 
   text-align: center;
+}
+
+.colName {
+ 
+  text-align: center;
+  margin: 2rem;
+
 }
