@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Title</title>
+    <title>Taskey</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,7 +16,7 @@
         <div class="row" id="addTask">
             <div class="col text-center">
             
-              <button  type="button" class="btn btn-outline-warning" data-toggle="collapse" data-target="#collapseAddTask" aria-expanded="false" aria-controls="collapseAddTask">Add new task</button>
+              <button  id="addTaskButton" type="button" class="btn btn-warning" data-toggle="collapse" data-target="#collapseAddTask" aria-expanded="false" aria-controls="collapseAddTask">Add new task</button>
               <div class="collapse" id="collapseAddTask">
                  <!-- Container with form -->
     <div class="container-fluid" style="width: 85rem">
@@ -82,7 +82,7 @@
         </div>
                             <!--***** CONTAINER FOR CARD COLUMNS ******-->
 
-          <div class="row">
+          <div class="row d-flex justify-content-around">
 
                                <!--********  COLUMN 1  ********-->
 
@@ -93,7 +93,7 @@
                   <!--**** CARD 1 ****-->
 
                   <div class="col-3">
-                    <div class="card d-inline-block bg-primary" style="width: 25rem;">
+                    <div class="card d-inline-block bg-primary" style="width: 20rem;">
                       <div class="card-header">Feb 28
                       </div>
                       <div class="card-body">
@@ -109,7 +109,7 @@
                     <!--**** CARD 2 ****-->
                     
                   <div class="col-3">
-                    <div class="card d-inline-block bg-danger" style="width: 25rem;">
+                    <div class="card d-inline-block bg-danger" style="width: 20rem;">
                       <div class="card-header">Jan 15
                       </div>
                       <div class="card-body">
@@ -125,7 +125,7 @@
                    <!--**** CARD 3 ****-->
                     
                   <div class="col-3">
-                    <div class="card d-inline-block bg-primary" style="width: 25rem;">
+                    <div class="card d-inline-block bg-primary" style="width: 20rem;">
                       <div class="card-header">Jan 20
                       </div>
                       <div class="card-body">
@@ -153,7 +153,7 @@
                     <!--**** CARD 4 ****-->
 
                   <div class="col-3">
-                    <div class="card d-inline-block bg-warning" style="width: 25rem;">
+                    <div class="card d-inline-block bg-warning" style="width: 20rem;">
                       <div class="card-header">Feb 1
                       </div>
                       <div class="card-body">
@@ -169,7 +169,7 @@
                          <!--**** CARD 5 ****-->
 
                   <div class="col-3">
-                    <div class="card d-inline-block bg-warning" style="width: 25rem;">
+                    <div class="card d-inline-block bg-warning" style="width: 20rem;">
                       <div class="card-header">Feb 1
                       </div>
                       <div class="card-body">
@@ -196,7 +196,7 @@
                          <!--**** CARD 6 ****-->
 
                   <div class="col-3">
-                    <div class="card d-inline-block bg-success" style="width: 25rem;">
+                    <div class="card d-inline-block bg-success" style="width: 20rem;">
                       <div class="card-header">Jan 14
                       </div>
                       <div class="card-body">
@@ -212,7 +212,7 @@
                          <!--**** CARD 7 ****-->
 
                   <div class="col-3">
-                    <div class="card d-inline-block bg-danger" style="width: 25rem;">
+                    <div class="card d-inline-block bg-danger" style="width: 20rem;">
                       <div class="card-header">Jan 15
                       </div>
                       <div class="card-body">
@@ -228,7 +228,7 @@
                             <!--**** CARD 8 ****-->
 
                   <div class="col-3">
-                    <div class="card d-inline-block bg-success" style="width: 25rem;">
+                    <div class="card d-inline-block bg-success" style="width: 20rem;">
                       <div class="card-header">Jan 14
                       </div>
                       <div class="card-body">
@@ -244,7 +244,7 @@
                            <!--**** CARD 9 ****-->
 
                   <div class="col-3">
-                    <div class="card d-inline-block bg-warning" style="width: 25rem;">
+                    <div class="card d-inline-block bg-warning" style="width: 20rem;">
                       <div class="card-header">Feb 1
                       </div>
                       <div class="card-body">
@@ -264,31 +264,7 @@
               </div>
             </div>
 
-            <!--******* COLUMN 4 STARTS HERE *******-->
-
-            <div class="col-3">
-              <div class="row d-flex flex-column card-columns">
-                <div class="cardContainer">
-
-                            <!--**** CARD 10 ****-->
-
-                  <div class="col-3">
-                    <div class="card d-inline-block bg-primary" style="width: 25rem;">
-                      <div class="card-header">Feb 28
-                      </div>
-                      <div class="card-body">
-                        <h5 class="card-title">Finish the book</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-danger">Remove Task</a>
-                      </div>
-                      <div class="card-footer bg-white border-primary">Lena
-                      </div>
-                    </div>
-                  </div>
-
-
-                  <!--****** COLUMN ENDING *******-->
-
+            
                 </div>
               </div>
             </div>
