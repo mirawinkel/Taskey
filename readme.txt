@@ -6,4 +6,4 @@ Joey
 Olga
 Volha
 
-Screenshot for Wirframe mockup is located in img folder
+Screenshot for Wireframe mockup is located in img folder
