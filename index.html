@@ -13,73 +13,75 @@
   <body>
     
 
-        <div class="row" id="addTask">
-            <div class="col text-center">
-            
-              <button  id="addTaskButton" type="button" class="btn btn-warning btn-lg" data-toggle="collapse" data-target="#collapseAddTask" aria-expanded="false" aria-controls="collapseAddTask">Add new task</button>
-              <div class="collapse" id="collapseAddTask">
-                 <!-- Container with form -->
-    <div class="container-fluid" style="width: 85rem">
-      <div class="row justify-content-center">
-        <div class="col-6 formContainer">
-          <form>
-            <div class="form-group topItem">
-              <label for="Name">Who is the task assigned to?</label>
-              <input type="text" class="form-control" id="Name" placeholder="Name of person doing the task">
-            </div>
-            <div class="form-group">
-              <label for="taskName">Name of the Task</label>
-              <input type="text" class="form-control" id="taskName" placeholder="Something to do...">
-            </div>
-            <div class="form-group">
-              <label for="Description">Describe the Task Here</label>
-              <textarea class="form-control" id="Description" rows="3" placeholder="Task description..."></textarea>
-            </div>
-            <div class="form-group">
-              <label for="Status">Select Status</label>
-              <select class="form-control" id="Status">
-                <option>To Do</option>
-                <option>In Progress</option>
-                <option>Review</option>
-                <option>Stuck</option>
-                <option>Done</option>
-              </select>
-            </div>
-            
-            <div class="py text-center"><i class="fa fa-calendar fa-5x"></i>
-            </div>
-                <!-- Date Picker Input -->
+    <div class="row" id="addTask">
+      <div class="col text-center">
+        <button  id="addTaskButton" type="button" class="btn btn-warning btn-lg" data-toggle="collapse" data-target="#collapseAddTask" aria-expanded="false" aria-controls="collapseAddTask">Add new task</button>
+        <div class="collapse" id="collapseAddTask">
 
-            <label for="DueDate">Date Due</label>               
+            
+                      <!-- Container with form -->
+          <div class="container-fluid" style="width: 85rem">
+            <div class="row justify-content-center">
+              <div class="col-6 formContainer">
+                <form>
 
-            <div class="form-group">
+                      <!-- Name Entry -->
+                  <div class="form-group topItem">
+                    <label for="Name">Who is the task assigned to?</label>
+                    <input type="text" class="form-control" id="Name" placeholder="Name of person doing the task">
+                  </div>
+
+                      <!-- Task Name Entry -->
+                  <div class="form-group">
+                    <label for="taskName">Name of the Task</label>
+                    <input type="text" class="form-control" id="taskName" placeholder="Something to do...">
+                  </div>
+
+                      <!-- Task Description Entry-->
+                  <div class="form-group">
+                    <label for="Description">Describe the Task Here</label>
+                    <textarea class="form-control" id="Description" rows="3" placeholder="Task description..."></textarea>
+                  </div>
+
+                      <!-- Task Status Dropdown-->
+                  <div class="form-group">
+                    <label for="Status">Select Status</label>
+                    <select class="form-control" id="Status">
+                      <option>To Do</option>
+                      <option>In Progress</option>
+                      <option>Review</option>
+                      <option>Stuck</option>
+                      <option>Done</option>
+                    </select>
+                  </div>
+                  
+                        <!-- Date Picker Input -->
+                  <div class="py text-center"><i class="fa fa-calendar fa-5x"></i>
+                  </div>
+                  <label for="DueDate">Date Due</label>               
+                  <div class="form-group">
                     <div class='input-group date' id='datetimepicker1'>
-                        <input type='text' class="form-control" placeholder="mm/dd/yyyy"/>
-                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                      <input type='text' class="form-control" placeholder="mm/dd/yyyy"/>
+                      <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar">
                         </span>
+                      </span>
                     </div>
-            </div>
+                  </div>
+                
+                  <div class="text-center">
+                    <p class="font-italic text-muted mb-0">Task Completion Date Is</p>
+                    <h4 id="DueDate" class="font-weight-bold text-uppercase mb-3">Not set yet</h4>
+                    <a href="#" class="btn btn-warning btn-lg px-4 rounded-pill text-uppercase font-weight-bold shadow-sm">Add Task</a>
+                  </div>           
           
-            <div class="text-center">
-                   <p class="font-italic text-muted mb-0">Task Completion Date Is</p>
-                   <h4 id="DueDate" class="font-weight-bold text-uppercase mb-3">Not set yet</h4>
-                   <a href="#" class="btn btn-warning btn-lg px-4 rounded-pill text-uppercase font-weight-bold shadow-sm">Add Task</a>
-            </div>           
-          
-          
-            
-        
-          </form>
-        </div>
-
-      </div>
-
-    </div>     
-
-              
+                </form>
               </div>
             </div>
+          </div>     
         </div>
+      </div>
+    </div>
                             <!--***** CONTAINER FOR CARD COLUMNS ******-->
 
           <div class="row d-flex justify-content-around">
@@ -98,7 +100,7 @@
 
                   <div class="col-3">
                     <div class="card d-inline-block bg-primary" style="width: 20rem;">
-                      <div class="card-header">Feb 28
+                      <div class="card-header">Jan 10
                       </div>
                       <div class="card-body">
                         <h5 class="card-title">Finish the book</h5>
@@ -114,7 +116,7 @@
                     
                   <div class="col-3">
                     <div class="card d-inline-block bg-danger" style="width: 20rem;">
-                      <div class="card-header">Jan 15
+                      <div class="card-header">Jan 10
                       </div>
                       <div class="card-body">
                         <h5 class="card-title">Make homework</h5>
@@ -130,7 +132,7 @@
                     
                   <div class="col-3">
                     <div class="card d-inline-block bg-primary" style="width: 20rem;">
-                      <div class="card-header">Jan 20
+                      <div class="card-header">Jan 10
                       </div>
                       <div class="card-body">
                         <h5 class="card-title">Buy cat food</h5>
@@ -159,7 +161,7 @@
 
                   <div class="col-3">
                     <div class="card d-inline-block bg-warning" style="width: 20rem;">
-                      <div class="card-header">Feb 1
+                      <div class="card-header">Jan 11
                       </div>
                       <div class="card-body">
                         <h5 class="card-title">Work on Homework</h5>
@@ -175,7 +177,7 @@
 
                   <div class="col-3">
                     <div class="card d-inline-block bg-warning" style="width: 20rem;">
-                      <div class="card-header">Feb 1
+                      <div class="card-header">Jan 14
                       </div>
                       <div class="card-body">
                         <h5 class="card-title">Go to bank</h5>
@@ -203,7 +205,7 @@
 
                   <div class="col-3">
                     <div class="card d-inline-block bg-success" style="width: 20rem;">
-                      <div class="card-header">Jan 14
+                      <div class="card-header">Jan 22
                       </div>
                       <div class="card-body">
                         <h5 class="card-title">Call Mira</h5>
@@ -219,7 +221,7 @@
 
                   <div class="col-3">
                     <div class="card d-inline-block bg-danger" style="width: 20rem;">
-                      <div class="card-header">Jan 15
+                      <div class="card-header">Jan 25
                       </div>
                       <div class="card-body">
                         <h5 class="card-title">Make homework</h5>
@@ -235,7 +237,7 @@
 
                   <div class="col-3">
                     <div class="card d-inline-block bg-success" style="width: 20rem;">
-                      <div class="card-header">Jan 14
+                      <div class="card-header">Feb 2
                       </div>
                       <div class="card-body">
                         <h5 class="card-title">Call Mira</h5>
@@ -251,7 +253,7 @@
 
                   <div class="col-3">
                     <div class="card d-inline-block bg-warning" style="width: 20rem;">
-                      <div class="card-header">Feb 1
+                      <div class="card-header">Feb 13
                       </div>
                       <div class="card-body">
                         <h5 class="card-title">Work on Homework</h5>
@@ -271,12 +273,8 @@
             </div>
 
             
-                </div>
-              </div>
-            </div>
-
-      </div>
-      
+          </div>
+          
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
