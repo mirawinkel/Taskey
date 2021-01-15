@@ -18,6 +18,9 @@ html {
   color: white;
 }
 
+
+
+
 .formContainer {
 
   height: 44rem;
@@ -71,4 +74,8 @@ input.form-control::placeholder {
 
 .cardBackUrgent {
   background-color: rgb(184, 92, 52)
+}
+p {
+
+  text-align: center;
 }
