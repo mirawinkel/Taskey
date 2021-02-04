@@ -6,6 +6,7 @@ class TaskCard {
         this._status = status;
         this._dueDate = dueDate;
         this._cardId = cardId;
+        this._columnValue = null;
 
 
 
@@ -23,7 +24,39 @@ class TaskCard {
     set dueDate(value) { this._dueDate = value}
     get cardId() { return this._cardId; }
     set cardId(value) { this._cardId = value}
+    get columnValue() { return this._columnValue; }
+    set columnValue(value) { this._columnValue = value}
 
+    
+    determineDate () {
+        // get weekday from dueDate
+        
+        let dueDay = this.dueDate;
+        dueDay = dueDay.replace(/\//g, ',');
+        const dateValues = dueDay.split(',');
+        const day = dateValues[1];
+    
+        // get today's date
+        const today = new Date();
+        const date = today.getDate();
+    
+        // compare today's date to due date and assign column value
+        if (date == day) {
+            this.columnValue = 'columnToday';
+            return this.columnValue;
+        }   
+        else if (date <= (day + 7)) {
+            this.columnValue = 'columnThisWeek';
+            return this.columnValue;
+        }   
+        else if (date > (day +7)) {
+            this.columnValue = 'columnLater';
+            return this.columnValue;
+        }
+        else {
+            window.alert('Invalid date')
+        }
+    }
 }
 
 //unique number generator
@@ -35,8 +68,8 @@ let generateId = () => {
 let taskRegistry = [];
 
 //function to create a new card object and add to array
-let createNewCard = () => {
-    
+let createNewCard = (event) => {
+    event.preventDefault();    
     let ownerName = document.getElementById("Name").value;
     let taskName = document.getElementById("taskName").value;
     let description = document.getElementById("Description").value;
@@ -46,7 +79,12 @@ let createNewCard = () => {
     let cardId = generateId();
     let newCard = new TaskCard(ownerName, taskName, description, status, dueDate, cardId);
     taskRegistry += newCard;
+    newCard.determineDate();
     drawNewCard(newCard);
+    console.log(taskRegistry);
+    console.log(newCard.columnValue);
+
+    //drawNewCard(newCard);
 }
 //function to draw a card
 let drawNewCard = (taskCard) => {
@@ -74,27 +112,12 @@ let drawNewCard = (taskCard) => {
                 </div>
             </div>
         </div>`;
-    document.getElementById('columnToday').appendChild(cardDiv);
+    const colPlace = document.getElementById(taskCard.columnValue);
+    colPlace.appendChild(cardDiv);
 }
 
-document.getElementById('addTaskButton').onclick = createNewCard;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+const taskButton = document.getElementById("addTaskButton");
+taskButton.addEventListener("click", createNewCard);
 
 
 
@@ -124,52 +147,12 @@ document.getElementById('addTaskButton').onclick = createNewCard;
 //         this.dueDate = document.getElementById("datetimepicker1")
 //     },
 
-//     determineDate () {
-//         // get weekday from dueDate
-        
-//         let dueDay = this.dueDate;
-//         dueDay = dueDay.replace(/\//g, ',');
-//         const dateValues = dueDay.split(',');
-//         const day = dateValues[1];
 
-//         // get today's date
-//         const today = new Date();
-//         const date = today.getDate();
 
-//         // compare today's date to due date and assign column value
-//         if (date == day) {
-//             this.columnValue = 'today';
-//             return this.columnValue;
-//         }   
-//         else if (date <= (day + 7)) {
-//         this.columnValue = 'this week';
-//         return this.columnValue;
-//         }   
-//         else {
-//         this.columnValue = 'later';
-//         return this.columnValue;
-//     },
 
-//     makeTaskCard () {
-//         //Make card div
-//         const taskCard = document.createElement('div');
-//         taskCard.classList.add('card d-inline-block');
-//         taskCard.style.width = '20rem'
-//         //Make card header
-//         const cardHeader = document.createElement('div');
-//         cardHeader.classList.add('card-header');
-//         cardHeader.innerHTML(this.dueDate);
-//         //Make card body
-//         const cardBody = document.createElement('div');
-//         cardBody.classList.add('card-body');
-//         //Make card title
-//         const cardTitle = document.createElement('h5');
-//         cardTitle.classList.add('card-title');
-//         cardTitle.innerHTML(this.taskName);
-//         //Make card description
-//         const cardDescription = document.createElement('p');
-//         cardDescription.classList.add('card-text');
-//         cardDescription.innerHTML(this.description);
+
+
+
 
 
 
