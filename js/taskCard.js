@@ -69,7 +69,7 @@ const taskForm = {
         //Make card div
         const taskCard = document.createElement('div');
         taskCard.classList.add('card d-inline-block');
-        taskCard.style.width = '20rem'
+        taskCard.style.width = '20rem';
         //Make card header
         const cardHeader = document.createElement('div');
         cardHeader.classList.add('card-header');
@@ -85,11 +85,7 @@ const taskForm = {
         const cardDescription = document.createElement('p');
         cardDescription.classList.add('card-text');
         cardDescription.innerHTML(this.description);
-
-
-
         
     }
 
 }
-
