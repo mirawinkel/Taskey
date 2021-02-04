@@ -12,20 +12,24 @@
   </head>
   <body>
 
+    <div id="error"></div>
+
+    
+
     <div class="container-fluid" style="width: 85rem">
       <div class="row justify-content-center">
         <div class="col-6 formContainer">
-          <form>
+          <form id="form" action ="/" method="GET" >
             <div class="form-group topItem">
               <label for="Name">Who is the task assigned to?</label>
-              <input type="text" class="form-control" id="Name" placeholder="Name of person doing the task">
+              <input type="text" class="form-control" id="Name" placeholder="Name of person doing the task" required>
             </div>
             <div class="form-group">
               <label for="taskName">Name of the Task</label>
-              <input type="text" class="form-control" id="taskName" placeholder="Something to do...">
+              <input type="text" class="form-control" id="taskName" placeholder="Something to do..." required>
             </div>
             <div class="form-group">
-              <label for="Description">Describe the Task Here</label>
+              <label for="Description">Describe the Task Here (optional)</label>
               <textarea class="form-control" id="Description" rows="3" placeholder="Task description..."></textarea>
             </div>
             <div class="form-group">
@@ -66,7 +70,8 @@
                   <div class="text-center">
                    <p class="font-italic text-muted mb-0">Task Completion Date Is</p>
                    <h4 id="DueDate" class="font-weight-bold text-uppercase mb-3">Not set yet</h4>
-                   <a href="#" class="btn btn-warning btn-sm px-4 rounded-pill text-uppercase font-weight-bold shadow-sm">Add Task</a>
+                   <input class="btn btn-warning btn-lg px-4 rounded-pill text-uppercase font-weight-bold shadow-sm data-toggle="button" aria-pressed="false" autocomplete="off" type="submit" value="Submit">
+                   
                   </div>
                 </div>
               </div>
@@ -349,7 +354,9 @@
 
 
       </div>
-      
+
+      <script src="./index.js">
+       </script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
