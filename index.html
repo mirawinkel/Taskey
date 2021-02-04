@@ -14,23 +14,23 @@
     
 
     <div class="row" id="addTask">
-      <div class="col text-center">
-        <button  id="addTaskButton" type="button" class="btn btn-warning btn-lg" data-toggle="collapse" data-target="#collapseAddTask" aria-expanded="false" aria-controls="collapseAddTask">Add new task</button>
-        <div class="collapse" id="collapseAddTask">
-
-            
-                      <!-- Container with form -->
-          <div class="container-fluid" style="width: 85rem">
-            <div class="row justify-content-center">
-              <div class="col-6 formContainer">
+     <div class="col text-center">
+      <button  id="addTaskButton" type="button" class="btn btn-warning btn-lg" data-toggle="collapse" data-target="#collapseAddTask" aria-expanded="false" aria-controls="collapseAddTask">Add new task</button>
+       <div class="collapse" id="collapseAddTask">
+        <div id="error"></div>
+                         <!-- Container with form -->
+         <div class="container-fluid" style="width: 85rem">
+          <div class="row justify-content-center">
+            <div class="col-6 formContainer">
+              <form id="form" action ="/" method="GET" >
                 
                 <form> <!--the form starts-->
 
                       <!-- Name Entry -->
                   <div class="form-group topItem">
                     <label for="Name">Who is the task assigned to?</label>
-                    <input type="text" class="form-control" id="Name" placeholder="Name of person doing the task">
-                  </div>
+                    <input type="text" class="form-control" id="Name" placeholder="Name of person doing the task" required>
+                   </div>
 
                       <!-- Task Name Entry -->
                   <div class="form-group">
@@ -40,20 +40,20 @@
 
                       <!-- Task Description Entry-->
                   <div class="form-group">
-                    <label for="Description">Describe the Task Here</label>
-                    <textarea class="form-control" id="Description" rows="3" placeholder="Task description..."></textarea>
+                    <label for="taskName">Name of the Task</label>
+                    <input type="text" class="form-control" id="taskName" placeholder="Something to do..." required>
                   </div>
 
                       <!-- Task Status Dropdown-->
                   <div class="form-group">
                     <label for="Status">Select Status</label>
-                    <select class="form-control" id="Status">
-                      <option>To Do</option>
-                      <option>In Progress</option>
-                      <option>Review</option>
-                      <option>Stuck</option>
-                      <option>Done</option>
-                    </select>
+                      <select class="form-control" id="Status">
+                        <option>To Do</option>
+                        <option>In Progress</option>
+                        <option>Review</option>
+                        <option>Stuck</option>
+                        <option>Done</option>
+                      </select>
                   </div>
                   
                         <!-- Date Picker Input -->
@@ -68,12 +68,16 @@
                         </span>
                       </span>
                     </div>
+
+                </div>
+
                   </div>
                 
                   <div class="text-center">
+                    <div class="text-center">
                     <p class="font-italic text-muted mb-0">Task Completion Date Is</p>
                     <h4 id="DueDate" class="font-weight-bold text-uppercase mb-3">Not set yet</h4>
-                    <a href="#" class="btn btn-warning btn-lg px-4 rounded-pill text-uppercase font-weight-bold shadow-sm">Add Task</a>
+                    <input class="btn btn-warning btn-lg px-4 rounded-pill text-uppercase font-weight-bold shadow-sm data-toggle="button" aria-pressed="false" autocomplete="off" type="submit" value="Submit">
                   </div>           
           
                 </form>
@@ -379,9 +383,22 @@
             </div>
 
             
+
+
+
+        </div>
+
+
+
+      </div>
+
+      <script src="./index.js">
+       </script>
+
           </div>
           <!-- JavaScript Link -->
     <script src="js\app.js" type="text/javascript"></script>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
