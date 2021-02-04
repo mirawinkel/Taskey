@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="./style.css">
+    
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -15,7 +16,7 @@
 
     <div class="row" id="addTask">
       <div class="col text-center">
-        <button  id="addTaskButton" type="button" class="btn btn-warning btn-lg" data-toggle="collapse" data-target="#collapseAddTask" aria-expanded="false" aria-controls="collapseAddTask">Add new task</button>
+        <button  id="showFormButton" type="button" class="btn btn-warning btn-lg" data-toggle="collapse" data-target="#collapseAddTask" aria-expanded="false" aria-controls="collapseAddTask">Add new task</button>
         <div class="collapse" id="collapseAddTask">
 
             
@@ -23,7 +24,7 @@
           <div class="container-fluid" style="width: 85rem">
             <div class="row justify-content-center">
               <div class="col-6 formContainer">
-                
+
                 <form> <!--the form starts-->
 
                       <!-- Name Entry -->
@@ -48,21 +49,20 @@
                   <div class="form-group">
                     <label for="Status">Select Status</label>
                     <select class="form-control" id="Status">
-                      <option>To Do</option>
-                      <option>In Progress</option>
-                      <option>Review</option>
-                      <option>Stuck</option>
-                      <option>Done</option>
+                      <option value="toDo">To Do</option>
+                      <option value="inProgress">In Progress</option>                            
+                      <option value="stuck">Stuck</option>
+                      <option value="done">Done</option>
                     </select>
                   </div>
                   
                         <!-- Date Picker Input -->
                   <div class="py text-center"><i class="fa fa-calendar fa-5x"></i>
                   </div>
-                  <label for="DueDate">Date Due</label>               
+                  <label for="DueDateInput">Date Due</label>               
                   <div class="form-group">
                     <div class='input-group date' id='datetimepicker1'>
-                      <input type='text' class="form-control" placeholder="mm/dd/yyyy"/>
+                      <input type='text' id="DueDateInput" class="form-control" placeholder="mm/dd/yyyy"/>
                       <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar">
                         </span>
@@ -73,7 +73,7 @@
                   <div class="text-center">
                     <p class="font-italic text-muted mb-0">Task Completion Date Is</p>
                     <h4 id="DueDate" class="font-weight-bold text-uppercase mb-3">Not set yet</h4>
-                    <a href="#" class="btn btn-warning btn-lg px-4 rounded-pill text-uppercase font-weight-bold shadow-sm">Add Task</a>
+                    <a href="#" class="btn btn-warning btn-lg px-4 rounded-pill text-uppercase font-weight-bold shadow-sm" id="addTaskButton" >Add Task</a>
                   </div>           
           
                 </form>
@@ -93,14 +93,14 @@
               
               <div class="row d-flex flex-column card-columns">
                 <h2 class="colName">Today</h2>
-                <div class="cardContainer">
+                <div class="cardContainer" id="columnToday">
 
                   
 
                   <!--**** CARD 1 ****-->
                   
                   <div class="col-3">
-                    <div class= imp-1> <!--to override the card color-->
+                    <div class="color_toDo"> <!--to override the card color-->
                     <div class="card d-inline-block" style="width: 20rem;">
                       <div class="card-header">Jan 10
                       </div>
@@ -110,11 +110,10 @@
                         <a href="#" class="btn btn-danger">Remove Task</a>
                         <div class="form-group">
                           <select class="form-control" id="Status">
-                            <option>To Do</option>
-                            <option>In Progress</option>
-                            <option>Review</option>
-                            <option>Stuck</option>
-                            <option>Done</option>
+                            <option class="toDo">To Do</option>
+                            <option class="inProgress">In Progress</option>                            
+                            <option class="stuck">Stuck</option>
+                            <option class="done">Done</option>
                           </select>
                         </div>
                       </div>
@@ -128,7 +127,7 @@
                   
                     
                   <div class="col-3">
-                    <div class= imp-2> <!--to override the card color-->
+                    <div class="color_toDo"> <!--to override the card color-->
                     <div class="card d-inline-block" style="width: 20rem;">
                       <div class="card-header">Jan 10
                       </div>
@@ -138,11 +137,10 @@
                         <a href="#" class="btn btn-danger">Remove Task</a>
                         <div class="form-group">
                           <label for="Status">Select Status</label>  <select class="form-control" id="Status">
-                            <option>To Do</option>
-                            <option>In Progress</option>
-                            <option>Review</option>
-                            <option>Stuck</option>
-                            <option>Done</option>
+                            <option class="toDo">To Do</option>
+                            <option class="inProgress">In Progress</option>                            
+                            <option class="stuck">Stuck</option>
+                            <option class="done">Done</option>
                           </select>
                         </div>
                       </div>
@@ -154,7 +152,7 @@
                    <!--**** CARD 3 ****-->
                     
                   <div class="col-3">
-                    <div class= imp-3> <!--to override the card color-->
+                    <div class="color_done"> <!--to override the card color-->
                     <div class="card d-inline-block" style="width: 20rem;">
                       <div class="card-header">Jan 10
                       </div>
@@ -165,11 +163,10 @@
                         <div class="form-group">
                        
                           <select class="form-control" id="Status">
-                            <option>To Do</option>
-                            <option>In Progress</option>
-                            <option>Review</option>
-                            <option>Stuck</option>
-                            <option>Done</option>
+                            <option class="toDo">To Do</option>
+                            <option class="inProgress">In Progress</option>                            
+                            <option class="stuck">Stuck</option>
+                            <option class="done">Done</option>
                           </select>
                         </div>
                       </div>
@@ -189,12 +186,12 @@
             <div class="col-4">
               <div class="row d-flex flex-column card-columns">
                 <h2 class="colName">This Week</h2>
-                <div class="cardContainer">
+                <div class="cardContainer" id="columnThisWeek">
 
                     <!--**** CARD 4 ****-->
 
                   <div class="col-3">
-                    <div class= imp-2> <!--to override the card color-->
+                    <div class="color_done"> <!--to override the card color-->
                     <div class="card d-inline-block" style="width: 20rem;">
                       <div class="card-header">Jan 11
                       </div>
@@ -205,11 +202,10 @@
                         <div class="form-group">
                         
                           <select class="form-control" id="Status">
-                            <option>To Do</option>
-                            <option>In Progress</option>
-                            <option>Review</option>
-                            <option>Stuck</option>
-                            <option>Done</option>
+                            <option class="toDo">To Do</option>
+                            <option class="inProgress">In Progress</option>                            
+                            <option class="stuck">Stuck</option>
+                            <option class="done">Done</option>
                           </select>
                         </div>
                       </div>
@@ -233,11 +229,10 @@
                         <div class="form-group">
                         
                           <select class="form-control" id="Status">
-                            <option>To Do</option>
-                            <option>In Progress</option>
-                            <option>Review</option>
-                            <option>Stuck</option>
-                            <option>Done</option>
+                            <option class="toDo">To Do</option>
+                            <option class="inProgress">In Progress</option>                            
+                            <option class="stuck">Stuck</option>
+                            <option class="done">Done</option>
                           </select>
                         </div>
                       </div>
@@ -257,12 +252,12 @@
             <div class="col-4">
               <div class="row d-flex flex-column card-columns">
                 <h2 class="colName">Later</h2>
-                <div class="cardContainer">
+                <div class="cardContainer" id="columnLater">
 
                          <!--**** CARD 6 ****-->
 
                   <div class="col-3">
-                    <div class= imp-1> <!--to override the card color-->
+                    <div class="color_inProgress"> <!--to override the card color-->
                     <div class="card d-inline-block " style="width: 20rem;">
                       <div class="card-header">Jan 22
                       </div>
@@ -273,11 +268,10 @@
                         <div class="form-group">
                         
                           <select class="form-control" id="Status">
-                            <option>To Do</option>
-                            <option>In Progress</option>
-                            <option>Review</option>
-                            <option>Stuck</option>
-                            <option>Done</option>
+                            <option class="toDo">To Do</option>
+                            <option class="inProgress">In Progress</option>                            
+                            <option class="stuck">Stuck</option>
+                            <option class="done">Done</option>
                           </select>
                         </div>
                       </div>
@@ -301,11 +295,10 @@
                         <div class="form-group">
                         
                           <select class="form-control" id="Status">
-                            <option>To Do</option>
-                            <option>In Progress</option>
-                            <option>Review</option>
-                            <option>Stuck</option>
-                            <option>Done</option>
+                            <option class="toDo">To Do</option>
+                            <option class="inProgress">In Progress</option>                            
+                            <option class="stuck">Stuck</option>
+                            <option class="done">Done</option>
                           </select>
                         </div>
                       </div>
@@ -318,7 +311,7 @@
                             <!--**** CARD 8 ****-->
 
                   <div class="col-3">
-                    <div class= imp-3> <!--to override the card color-->
+                    <div class="color_stuck"> <!--to override the card color-->
                     <div class="card d-inline-block" style="width: 20rem;">
                       <div class="card-header">Feb 2
                       </div>
@@ -329,11 +322,10 @@
                         <div class="form-group">
                          
                           <select class="form-control" id="Status">
-                            <option>To Do</option>
-                            <option>In Progress</option>
-                            <option>Review</option>
-                            <option>Stuck</option>
-                            <option>Done</option>
+                            <option class="toDo">To Do</option>
+                            <option class="inProgress">In Progress</option>                            
+                            <option class="stuck">Stuck</option>
+                            <option class="done">Done</option>
                           </select>
                         </div>
                       </div>
@@ -346,7 +338,7 @@
                            <!--**** CARD 9 ****-->
 
                   <div class="col-3">
-                    <div class= imp-1> <!--to override the card color-->
+                    <div class="color_inProgress"> <!--to override the card color-->
                     <div class="card d-inline-block" style="width: 20rem;">
                       <div class="card-header">Feb 13
                       </div>
@@ -357,11 +349,10 @@
                         <div class="form-group">
                       
                           <select class="form-control" id="Status">
-                            <option>To Do</option>
-                            <option>In Progress</option>
-                            <option>Review</option>
-                            <option>Stuck</option>
-                            <option>Done</option>
+                            <option class="toDo">To Do</option>
+                            <option class="inProgress">In Progress</option>                            
+                            <option class="stuck">Stuck</option>
+                            <option class="done">Done</option>
                           </select>
                         </div>
                       </div>
@@ -381,7 +372,7 @@
             
           </div>
           <!-- JavaScript Link -->
-    <script src="js\app.js" type="text/javascript"></script>
+    <script src="./app.js" type="text/javascript"></script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
