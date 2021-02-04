@@ -1,8 +1,17 @@
+
+
+
 html {
    
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
 
+}
+
+.form-group {
+  margin-top: 10px;
+  border-radius: 5px;
+  width: 55%;
 }
 
 
@@ -12,16 +21,27 @@ html {
   border-radius: 8px;
   margin: 100px auto;
 }
-  
+
 .button:hover {
   background-color: orange;
   color: white;
 }
 
+#addTaskButton {
+
+  margin: 2rem auto 1rem auto;
+  padding: 0.5rem 7rem;
+  font-size: 1.5rem;
+  background-color: rgb(252, 179, 120);
+  border-color: rgb(204, 117, 4);
+
+}
+
+
 .formContainer {
 
   height: 44rem;
-  margin: 5rem auto;
+  margin: 1rem auto;
   background-color: blanchedalmond
 }
 .topItem {
@@ -69,3 +89,32 @@ input.form-control::placeholder {
   box-shadow: 0 .32rem 10px rgba(0, 0, 0, 0.1);
 }
 
+.cardBackUrgent {
+  background-color: rgb(184, 92, 52)
+}
+p {
+
+  text-align: center;
+}
+
+.colName {
+ 
+  text-align: center;
+  margin: 2rem;
+
+}
+.imp-0 .card {
+  background-color:rgb(99, 245, 136);
+}
+
+.imp-1 .card {
+  background-color: rgb(114, 157, 250);
+}
+
+.imp-2 .card {
+  background-color: rgb(247, 245, 100);
+}
+
+.imp-3 .card {
+  background-color: rgb(250, 146, 134);
+}
