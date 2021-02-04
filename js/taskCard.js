@@ -19,6 +19,9 @@ class TaskCard {
     set dueDate(value) { this._dueDate = value}
 
 }
+let 
+
+
 
 const taskForm = {
 
@@ -93,3 +96,9 @@ const taskForm = {
 
 }
 
+//mine//
+
+//Assign card color based on option chosen (during making card)
+let applyColor(task) => {
+   
+}
