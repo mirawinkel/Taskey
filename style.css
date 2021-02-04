@@ -103,3 +103,18 @@ p {
   margin: 2rem;
 
 }
+.imp-0 .card {
+  background-color:rgb(99, 245, 136);
+}
+
+.imp-1 .card {
+  background-color: rgb(114, 157, 250);
+}
+
+.imp-2 .card {
+  background-color: rgb(247, 245, 100);
+}
+
+.imp-3 .card {
+  background-color: rgb(250, 146, 134);
+}
