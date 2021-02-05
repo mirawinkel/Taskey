@@ -102,6 +102,8 @@ let createNewCard = (event) => {
     drawNewCard(newCard);
     $('.rmvBtn').on('mouseenter', clickDelete());
     console.log(taskRegistry);
+    document.getElementById('form').reset();
+    
 }
 
 
@@ -144,6 +146,20 @@ let drawNewCard = (taskCard) => {
 
 const taskButton = document.getElementById("addTaskButton");
 taskButton.addEventListener("click", createNewCard);
+
+const showFormButton = document.getElementById('showFormButton');  // change caption on form opening button
+isFormVisible = false;
+showFormButton.onclick = () => {
+
+    isFormVisible = !isFormVisible;    
+    if (isFormVisible) {
+        showFormButton.innerHTML = 'Close';
+    }
+    else {
+        showFormButton.innerHTML = 'Add new task';
+    }
+
+}
 
 
 
