@@ -27,6 +27,14 @@ class TaskCard {
     get columnValue() { return this._columnValue; }
     set columnValue(value) { this._columnValue = value}
 
+
+
+    //added method to show objects as string
+    toString() {
+        return `{Task: taskId: ${this.cardId}, ownerName: ${this.ownerName}, taskName: ${this.taskName}, ${this.description}, ${this.status}, ${this.dueDate}}`;
+    }
+
+
     
     determineDate () {
         // get weekday from dueDate
@@ -57,6 +65,7 @@ class TaskCard {
             window.alert('Invalid date')
         }
     }
+
 }
 
 //function to assign delete functions to buttons by id
@@ -74,7 +83,8 @@ let generateId = () => {
     return currentGeneratorId;
 }
 //array with all tasks
-let taskRegistry = [];
+let taskRegistry = new Map();
+
 
 //function to create a new card object and add to array
 let createNewCard = (event) => {
@@ -87,18 +97,34 @@ let createNewCard = (event) => {
     console.log(`Adding new task ${ownerName}, ${taskName}, ${description}, ${status}, ${dueDate}`);
     let cardId = generateId();
     let newCard = new TaskCard(ownerName, taskName, description, status, dueDate, cardId);
-    taskRegistry += newCard;
-    newCard.determineDate();
-    drawNewCard(newCard);
-    $('.rmvBtn').on('mouseenter', clickDelete());
-    console.log(taskRegistry);
-    console.log(newCard.columnValue);
 
-    //drawNewCard(newCard);
+    taskRegistry.set (cardId, newCard);
+    drawNewCard(newCard);
+    console.log(taskRegistry);
 }
+
+let deleteCard = (cardId) => {                          ///delete Card
+    taskRegistry.delete(cardId);
+    document.getElementById(`divId_${cardId}`).remove();
+
+
+  //  taskRegistry += newCard;
+   // newCard.determineDate();
+  //  drawNewCard(newCard);
+//    $('.rmvBtn').on('mouseenter', clickDelete());
+ //   console.log(taskRegistry);
+ //   console.log(newCard.columnValue);
+
+ //   drawNewCard(newCard);
+
+}
+
+
+
 //function to draw a card
 let drawNewCard = (taskCard) => {
     let cardDiv = document.createElement('div');
+    cardDiv.setAttribute("id", `divId_${taskCard.cardId}`);   ////added div id and removeButton ID
     cardDiv.innerHTML = `
         <div class="color_${taskCard.status}" id="cardId${cardArray[cardArray.length - 1]}"> 
             <div class="card d-inline-block" style="width: 20rem;">
@@ -107,7 +133,11 @@ let drawNewCard = (taskCard) => {
                 <div class="card-body">
                     <h5 class="card-title">${taskCard.taskName}</h5>
                     <p class="card-text">${taskCard.description}</p>
-                    <button class="rmvBtn" id="btnId${cardArray[cardArray.length - 1]}">Remove Task</button>
+
+                    <a href="#" class="btn btn-danger" id="removeIdButton_${taskCard.cardId}">Remove Task</a>
+
+                 //   <button class="rmvBtn" id="btnId${cardArray[cardArray.length - 1]}">Remove Task</button>
+
                     <div class="form-group">
                         
                         <select class="form-control" id="Status">
@@ -122,14 +152,22 @@ let drawNewCard = (taskCard) => {
                 </div>
             </div>
         </div>`;
-    const colPlace = document.getElementById(taskCard.columnValue);
-    colPlace.appendChild(cardDiv);
+
+    document.getElementById('columnLater').appendChild(cardDiv);
+    document.getElementById(`removeIdButton_${taskCard.cardId}`).onclick = () => {  //onclick for removeButton
+        deleteCard(taskCard.cardId);
+    }
+
+ //   const colPlace = document.getElementById(taskCard.columnValue);
+ //   colPlace.appendChild(cardDiv);
+
 }
 
 
-$('.rmvBtn').on('mouseenter', clickDelete());
+//$('.rmvBtn').on('mouseenter', clickDelete());
 const taskButton = document.getElementById("addTaskButton");
 taskButton.addEventListener("click", createNewCard);
+
 
 
 
