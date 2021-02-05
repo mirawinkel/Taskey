@@ -24,6 +24,12 @@ class TaskCard {
     get cardId() { return this._cardId; }
     set cardId(value) { this._cardId = value}
 
+
+    //added method to show objects as string
+    toString() {
+        return `{Task: taskId: ${this.cardId}, ownerName: ${this.ownerName}, taskName: ${this.taskName}, ${this.description}, ${this.status}, ${this.dueDate}}`;
+    }
+
 }
 
 //unique number generator
@@ -32,7 +38,8 @@ let generateId = () => {
     return currentGeneratorId++;
 }
 //array with all tasks
-let taskRegistry = [];
+let taskRegistry = new Map();
+
 
 //function to create a new card object and add to array
 let createNewCard = () => {
@@ -45,12 +52,23 @@ let createNewCard = () => {
     console.log(`Adding new task ${ownerName}, ${taskName}, ${description}, ${status}, ${dueDate}`);
     let cardId = generateId();
     let newCard = new TaskCard(ownerName, taskName, description, status, dueDate, cardId);
-    taskRegistry += newCard;
+    taskRegistry.set (cardId, newCard);
     drawNewCard(newCard);
+    console.log(taskRegistry);
 }
+
+let deleteCard = (cardId) => {                          ///delete Card
+    taskRegistry.delete(cardId);
+    document.getElementById(`divId_${cardId}`).remove();
+
+}
+
+
+
 //function to draw a card
 let drawNewCard = (taskCard) => {
     let cardDiv = document.createElement('div');
+    cardDiv.setAttribute("id", `divId_${taskCard.cardId}`);   ////added div id and removeButton ID
     cardDiv.innerHTML = `
         <div class="color_${taskCard.status}"> 
             <div class="card d-inline-block" style="width: 20rem;">
@@ -59,7 +77,7 @@ let drawNewCard = (taskCard) => {
                 <div class="card-body">
                     <h5 class="card-title">${taskCard.taskName}</h5>
                     <p class="card-text">${taskCard.description}</p>
-                    <a href="#" class="btn btn-danger">Remove Task</a>
+                    <a href="#" class="btn btn-danger" id="removeIdButton_${taskCard.cardId}">Remove Task</a>
                     <div class="form-group">
                         
                         <select class="form-control" id="Status">
@@ -74,10 +92,14 @@ let drawNewCard = (taskCard) => {
                 </div>
             </div>
         </div>`;
-    document.getElementById('columnToday').appendChild(cardDiv);
+    document.getElementById('columnLater').appendChild(cardDiv);
+    document.getElementById(`removeIdButton_${taskCard.cardId}`).onclick = () => {  //onclick for removeButton
+        deleteCard(taskCard.cardId);
+    }
 }
 
 document.getElementById('addTaskButton').onclick = createNewCard;
+
 
 
 
