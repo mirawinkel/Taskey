@@ -131,7 +131,7 @@ let drawNewCard = (taskCard) => {
                         </select>
                     </div>
                 </div>
-                <div class="card-footer bg-white border-warning">${taskCard.ownerName}
+                <div class="card-footer bg-white">${taskCard.ownerName}
                 </div>
             </div>
         </div>`;
