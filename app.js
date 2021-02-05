@@ -59,10 +59,19 @@ class TaskCard {
     }
 }
 
+//function to assign delete functions to buttons by id
+const clickDelete = () => {
+    cardArray.forEach((Id) => {
+        $(`#btnId${Id}`).on('click', ()=>{$(`#cardId${Id}`).remove()})
+    })
+}
 //unique number generator
-let currentGeneratorId = 0;                           
+let currentGeneratorId = 0;
+let cardArray = [];                       
 let generateId = () => {
-    return currentGeneratorId++;
+    cardArray.push(currentGeneratorId);
+    currentGeneratorId++;
+    return currentGeneratorId;
 }
 //array with all tasks
 let taskRegistry = [];
@@ -81,6 +90,7 @@ let createNewCard = (event) => {
     taskRegistry += newCard;
     newCard.determineDate();
     drawNewCard(newCard);
+    $('.rmvBtn').on('mouseenter', clickDelete());
     console.log(taskRegistry);
     console.log(newCard.columnValue);
 
@@ -90,14 +100,14 @@ let createNewCard = (event) => {
 let drawNewCard = (taskCard) => {
     let cardDiv = document.createElement('div');
     cardDiv.innerHTML = `
-        <div class="color_${taskCard.status}"> 
+        <div class="color_${taskCard.status}" id="cardId${cardArray[cardArray.length - 1]}"> 
             <div class="card d-inline-block" style="width: 20rem;">
                 <div class="card-header">${taskCard.dueDate}
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">${taskCard.taskName}</h5>
                     <p class="card-text">${taskCard.description}</p>
-                    <a href="#" class="btn btn-danger">Remove Task</a>
+                    <button class="rmvBtn" id="btnId${cardArray[cardArray.length - 1]}">Remove Task</button>
                     <div class="form-group">
                         
                         <select class="form-control" id="Status">
@@ -116,6 +126,8 @@ let drawNewCard = (taskCard) => {
     colPlace.appendChild(cardDiv);
 }
 
+
+$('.rmvBtn').on('mouseenter', clickDelete());
 const taskButton = document.getElementById("addTaskButton");
 taskButton.addEventListener("click", createNewCard);
 

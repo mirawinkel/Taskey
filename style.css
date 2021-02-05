@@ -121,6 +121,30 @@ p {
 
 
 /****** Button ******/
+.rmvBtn {
+  display: inline-block ;
+  padding: .7em 1em;
+  margin: 0 0.1em 0.1em 0;
+  border-radius: .3rem;
+  box-sizing: border-box;
+  background-color: rgb(180, 36, 36);
+  text-decoration: none;
+  text-shadow: .08rem .08rem .05rem black;
+  font-size: 1rem;
+  color: #ffffff;
+  text-align: center;
+  font-weight: 500;
+  -webkit-border-radius: .3rem;
+  -moz-border-radius: .3rem;
+  -ms-border-radius: .3rem;
+  -o-border-radius: .3rem;
+}
+
+
+.rmvBtn:focus {
+  outline: none;
+}
+
 .lilButton {
   display: inline-block ;
   padding: .7em 2em;
@@ -152,8 +176,6 @@ p {
   background-image: linear-gradient(#5d4a1f, #FFFFAC, #5d4a1f) ;
   background-color: #9f7928 ;
   border-color: #5d4a1f;
-
-
 }
 .lilButton:active{
   outline: none;
