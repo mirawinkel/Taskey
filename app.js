@@ -53,11 +53,11 @@ class TaskCard {
             this.columnValue = 'columnToday';
             return this.columnValue;
         }   
-        else if (date <= (day + 7)) {
+        else if (day <= (date + 7)) {
             this.columnValue = 'columnThisWeek';
             return this.columnValue;
         }   
-        else if (date > (day +7)) {
+        else if (day > (date +7)) {
             this.columnValue = 'columnLater';
             return this.columnValue;
         }
@@ -134,7 +134,7 @@ let drawNewCard = (taskCard) => {
             </div>
         </div>`;
 
-    document.getElementById('columnLater').appendChild(cardDiv);
+    document.getElementById(taskCard.columnValue).appendChild(cardDiv);
     }
 
  //   const colPlace = document.getElementById(taskCard.columnValue);
