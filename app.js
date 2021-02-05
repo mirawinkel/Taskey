@@ -97,52 +97,33 @@ let createNewCard = (event) => {
     console.log(`Adding new task ${ownerName}, ${taskName}, ${description}, ${status}, ${dueDate}`);
     let cardId = generateId();
     let newCard = new TaskCard(ownerName, taskName, description, status, dueDate, cardId);
-
+    newCard.determineDate();
     taskRegistry.set (cardId, newCard);
     drawNewCard(newCard);
+    $('.rmvBtn').on('mouseenter', clickDelete());
     console.log(taskRegistry);
 }
 
-let deleteCard = (cardId) => {                          ///delete Card
-    taskRegistry.delete(cardId);
-    document.getElementById(`divId_${cardId}`).remove();
-
-
-  //  taskRegistry += newCard;
-   // newCard.determineDate();
-  //  drawNewCard(newCard);
-//    $('.rmvBtn').on('mouseenter', clickDelete());
- //   console.log(taskRegistry);
- //   console.log(newCard.columnValue);
-
- //   drawNewCard(newCard);
-
-}
 
 
 
 //function to draw a card
 let drawNewCard = (taskCard) => {
     let cardDiv = document.createElement('div');
-    cardDiv.setAttribute("id", `divId_${taskCard.cardId}`);   ////added div id and removeButton ID
+    cardDiv.setAttribute("id", `cardId${cardArray[cardArray.length - 1]}`);   ////added div id and removeButton ID
     cardDiv.innerHTML = `
-        <div class="color_${taskCard.status}" id="cardId${cardArray[cardArray.length - 1]}"> 
+        <div class="color_${taskCard.status}"> 
             <div class="card d-inline-block" style="width: 20rem;">
                 <div class="card-header">${taskCard.dueDate}
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">${taskCard.taskName}</h5>
                     <p class="card-text">${taskCard.description}</p>
-
-                    <a href="#" class="btn btn-danger" id="removeIdButton_${taskCard.cardId}">Remove Task</a>
-
-                 //   <button class="rmvBtn" id="btnId${cardArray[cardArray.length - 1]}">Remove Task</button>
-
-                    <div class="form-group">
-                        
+                    <button class="rmvBtn" id="btnId${cardArray[cardArray.length - 1]}">Remove Task</button>
+                    <div class="form-group">   
                         <select class="form-control" id="Status">
                             <option class="toDo">To Do</option>
-                            <option class="inProgress">In Progress</option>                            
+                            <option class="inProgress">In Progress</option>
                             <option class="stuck">Stuck</option>
                             <option class="done">Done</option>
                         </select>
@@ -154,23 +135,19 @@ let drawNewCard = (taskCard) => {
         </div>`;
 
     document.getElementById('columnLater').appendChild(cardDiv);
-    document.getElementById(`removeIdButton_${taskCard.cardId}`).onclick = () => {  //onclick for removeButton
-        deleteCard(taskCard.cardId);
     }
 
  //   const colPlace = document.getElementById(taskCard.columnValue);
  //   colPlace.appendChild(cardDiv);
 
-}
 
 
-//$('.rmvBtn').on('mouseenter', clickDelete());
 const taskButton = document.getElementById("addTaskButton");
 taskButton.addEventListener("click", createNewCard);
 
 
 
-
+//
 
 
 
