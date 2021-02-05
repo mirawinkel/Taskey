@@ -6,6 +6,7 @@ class TaskCard {
         this._status = status;
         this._dueDate = dueDate;
         this._cardId = cardId;
+        this._columnValue = null;
 
 
 
@@ -23,6 +24,9 @@ class TaskCard {
     set dueDate(value) { this._dueDate = value}
     get cardId() { return this._cardId; }
     set cardId(value) { this._cardId = value}
+    get columnValue() { return this._columnValue; }
+    set columnValue(value) { this._columnValue = value}
+
 
 
     //added method to show objects as string
@@ -30,20 +34,61 @@ class TaskCard {
         return `{Task: taskId: ${this.cardId}, ownerName: ${this.ownerName}, taskName: ${this.taskName}, ${this.description}, ${this.status}, ${this.dueDate}}`;
     }
 
+
+    
+    determineDate () {
+        // get weekday from dueDate
+        
+        let dueDay = this.dueDate;
+        dueDay = dueDay.replace(/\//g, ',');
+        const dateValues = dueDay.split(',');
+        const day = dateValues[1];
+    
+        // get today's date
+        const today = new Date();
+        const date = today.getDate();
+    
+        // compare today's date to due date and assign column value
+        if (date == day) {
+            this.columnValue = 'columnToday';
+            return this.columnValue;
+        }   
+        else if (date <= (day + 7)) {
+            this.columnValue = 'columnThisWeek';
+            return this.columnValue;
+        }   
+        else if (date > (day +7)) {
+            this.columnValue = 'columnLater';
+            return this.columnValue;
+        }
+        else {
+            window.alert('Invalid date')
+        }
+    }
+
 }
 
+//function to assign delete functions to buttons by id
+const clickDelete = () => {
+    cardArray.forEach((Id) => {
+        $(`#btnId${Id}`).on('click', ()=>{$(`#cardId${Id}`).remove()})
+    })
+}
 //unique number generator
-let currentGeneratorId = 0;                           
+let currentGeneratorId = 0;
+let cardArray = [];                       
 let generateId = () => {
-    return currentGeneratorId++;
+    cardArray.push(currentGeneratorId);
+    currentGeneratorId++;
+    return currentGeneratorId;
 }
 //array with all tasks
 let taskRegistry = new Map();
 
 
 //function to create a new card object and add to array
-let createNewCard = () => {
-    
+let createNewCard = (event) => {
+    event.preventDefault();    
     let ownerName = document.getElementById("Name").value;
     let taskName = document.getElementById("taskName").value;
     let description = document.getElementById("Description").value;
@@ -52,6 +97,7 @@ let createNewCard = () => {
     console.log(`Adding new task ${ownerName}, ${taskName}, ${description}, ${status}, ${dueDate}`);
     let cardId = generateId();
     let newCard = new TaskCard(ownerName, taskName, description, status, dueDate, cardId);
+
     taskRegistry.set (cardId, newCard);
     drawNewCard(newCard);
     console.log(taskRegistry);
@@ -60,6 +106,16 @@ let createNewCard = () => {
 let deleteCard = (cardId) => {                          ///delete Card
     taskRegistry.delete(cardId);
     document.getElementById(`divId_${cardId}`).remove();
+
+
+  //  taskRegistry += newCard;
+   // newCard.determineDate();
+  //  drawNewCard(newCard);
+//    $('.rmvBtn').on('mouseenter', clickDelete());
+ //   console.log(taskRegistry);
+ //   console.log(newCard.columnValue);
+
+ //   drawNewCard(newCard);
 
 }
 
@@ -70,14 +126,18 @@ let drawNewCard = (taskCard) => {
     let cardDiv = document.createElement('div');
     cardDiv.setAttribute("id", `divId_${taskCard.cardId}`);   ////added div id and removeButton ID
     cardDiv.innerHTML = `
-        <div class="color_${taskCard.status}"> 
+        <div class="color_${taskCard.status}" id="cardId${cardArray[cardArray.length - 1]}"> 
             <div class="card d-inline-block" style="width: 20rem;">
                 <div class="card-header">${taskCard.dueDate}
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">${taskCard.taskName}</h5>
                     <p class="card-text">${taskCard.description}</p>
+
                     <a href="#" class="btn btn-danger" id="removeIdButton_${taskCard.cardId}">Remove Task</a>
+
+                 //   <button class="rmvBtn" id="btnId${cardArray[cardArray.length - 1]}">Remove Task</button>
+
                     <div class="form-group">
                         
                         <select class="form-control" id="Status">
@@ -92,30 +152,21 @@ let drawNewCard = (taskCard) => {
                 </div>
             </div>
         </div>`;
+
     document.getElementById('columnLater').appendChild(cardDiv);
     document.getElementById(`removeIdButton_${taskCard.cardId}`).onclick = () => {  //onclick for removeButton
         deleteCard(taskCard.cardId);
     }
+
+ //   const colPlace = document.getElementById(taskCard.columnValue);
+ //   colPlace.appendChild(cardDiv);
+
 }
 
-document.getElementById('addTaskButton').onclick = createNewCard;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//$('.rmvBtn').on('mouseenter', clickDelete());
+const taskButton = document.getElementById("addTaskButton");
+taskButton.addEventListener("click", createNewCard);
 
 
 
@@ -146,52 +197,12 @@ document.getElementById('addTaskButton').onclick = createNewCard;
 //         this.dueDate = document.getElementById("datetimepicker1")
 //     },
 
-//     determineDate () {
-//         // get weekday from dueDate
-        
-//         let dueDay = this.dueDate;
-//         dueDay = dueDay.replace(/\//g, ',');
-//         const dateValues = dueDay.split(',');
-//         const day = dateValues[1];
 
-//         // get today's date
-//         const today = new Date();
-//         const date = today.getDate();
 
-//         // compare today's date to due date and assign column value
-//         if (date == day) {
-//             this.columnValue = 'today';
-//             return this.columnValue;
-//         }   
-//         else if (date <= (day + 7)) {
-//         this.columnValue = 'this week';
-//         return this.columnValue;
-//         }   
-//         else {
-//         this.columnValue = 'later';
-//         return this.columnValue;
-//     },
 
-//     makeTaskCard () {
-//         //Make card div
-//         const taskCard = document.createElement('div');
-//         taskCard.classList.add('card d-inline-block');
-//         taskCard.style.width = '20rem'
-//         //Make card header
-//         const cardHeader = document.createElement('div');
-//         cardHeader.classList.add('card-header');
-//         cardHeader.innerHTML(this.dueDate);
-//         //Make card body
-//         const cardBody = document.createElement('div');
-//         cardBody.classList.add('card-body');
-//         //Make card title
-//         const cardTitle = document.createElement('h5');
-//         cardTitle.classList.add('card-title');
-//         cardTitle.innerHTML(this.taskName);
-//         //Make card description
-//         const cardDescription = document.createElement('p');
-//         cardDescription.classList.add('card-text');
-//         cardDescription.innerHTML(this.description);
+
+
+
 
 
 
