@@ -170,25 +170,27 @@ showFormButton.onclick = () => {
 
 
 
+/* <ul class="dropdown-menu menu-btn">Open <</button>
+<div class="menu-content">
+    <a class="links toDo" id="toDo${cardId}">To Do</a>
+    <a class="links inProgress" id="inProgress${cardId}">In Progress</a>
+    <a class="links stuck" id="stuck${cardId}">Stuck</a>
+    <a class="links done" id="done${cardId}">Done</a>
+</div>
 
-// const taskForm = {
+$(`#toDo${cardId}`).on('click', ()=>{
+    $(`#colorId${cardId}`).removeClass();
+    $(`#colorId${cardId}`).addClass('color_toDo');});
+$(`#inProgress${cardId}`).on('click', ()=>{
+    $(`#colorId${cardId}`).removeClass();
+    $(`#colorId${cardId}`).addClass('color_inProgress');});
+$(`#stuck${cardId}`).on('click', ()=>{
+    $(`#colorId${cardId}`).removeClass();
+    $(`#colorId${cardId}`).addClass('color_stuck');});
+$(`#done${cardId}`).on('click', ()=>{
+    $(`#colorId${cardId}`).removeClass();
+    $(`#colorId${cardId}`).addClass('color_done');}); */
 
-//     name:'',
-//     taskName:'',
-//     description:'',
-//     status:'',
-//     dueDate:'',
-//     columnValue:'',
-
-//     getCardInfo () {
-//         //Get information from forms
-
-//         this.name = document.getElementById("Name").value;
-//         this.taskName = document.getElementById("taskName");
-//         this.description = document.getElementById("Description");
-//         this.status = document.getElementById("Status")
-//         this.dueDate = document.getElementById("datetimepicker1")
-//     },
 
 
 
