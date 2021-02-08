@@ -64,15 +64,14 @@ class TaskManager {
     }
     removeTask(cardId){
         const id = cardId
-        const deleted = {
-            cardId: 'deleted',
-        };
+        const newTasks = []
         for (let i = 0; i < this._tasks.length; i++) {
-            if (this._tasks[i].cardId == id) {
-                this._tasks.splice(i, 1, deleted)
-                console.log(`Task ${i + 1} deleted`)
+            if (this._tasks[i].cardId != id) {
+                newTasks.push(this._tasks[i])
             }
         }
+        this.tasks = newTasks
+        console.log(this.tasks)
     }
     addTask(){
         const ownerName = document.getElementById("Name").value
