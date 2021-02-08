@@ -8,8 +8,6 @@ class TaskCard {
         this._cardId = cardId;
         this._columnValue = null;
 
-
-
     }
     // Getter/setter methods
     get ownerName() { return this._ownerName; }
