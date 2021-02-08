@@ -19,7 +19,6 @@ drawCard=(card, cardId)=>{
                 </div>
             </div>
         </div>`;
-        console.log(cardDiv)
     return cardDiv
 }
 // Function to determine column value in relation to date due and todays date
@@ -54,19 +53,22 @@ class TaskManager {
     set tasks(value) { this._tasks = value }
 
     replaceTask(task) {
+        const card = task
         for (let i = 0; i < this._tasks.length; i++) {
-            if (this._tasks[i].cardId == task.cardId) {
-                this._tasks.splice(i, 1, task)
+            if (this._tasks[i].cardId == card.cardId) {
+                this._tasks.splice(i, 1, card)
                 console.log(`Task ${i + 1} replaced`)
             }
+            console.log(this.tasks)
         }
     }
     removeTask(cardId){
+        const id = cardId
         const deleted = {
-            cardId: 'deleted'
+            cardId: 'deleted',
         };
         for (let i = 0; i < this._tasks.length; i++) {
-            if (this._tasks[i].cardId == cardId) {
+            if (this._tasks[i].cardId == id) {
                 this._tasks.splice(i, 1, deleted)
                 console.log(`Task ${i + 1} deleted`)
             }
@@ -130,6 +132,21 @@ class TaskManager {
         }
         return foundTask
     }
+    save(){
+        const tasksJSON = JSON.stringify(this.tasks)
+        localStorage.setItem('tasks', tasksJSON)
+        const currentId = this._currentId.toString()
+        localStorage.setItem('currentId', currentId)
+    }
+    load(){
+        let tasksJSON
+        let currentId
+        tasksJSON = localStorage.getItem('tasks')
+        this.tasks = JSON.parse(tasksJSON)
+        currentId = localStorage.getItem('currentId')
+        currentId = parseInt(currentId)
+        this.currentId = currentId
+    }
 }
 
 // const ownerName = 'me'
@@ -152,5 +169,10 @@ class TaskManager {
 //     dueDate: dueDate,
 //     columnValue: null
 //     }
+// taskey.save()
+// taskey.tasks = []
+// console.log(taskey._tasks)
+// taskey.load()
 // console.log('test')
-// taskey.removeTask(newCard)
+// console.log(taskey.tasks)
+

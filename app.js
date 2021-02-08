@@ -25,15 +25,6 @@ class TaskCard {
     get columnValue() { return this._columnValue; }
     set columnValue(value) { this._columnValue = value}
 
-
-
-    //added method to show objects as string
-    toString() {
-        return `{Task: taskId: ${this.cardId}, ownerName: ${this.ownerName}, taskName: ${this.taskName}, ${this.description}, ${this.status}, ${this.dueDate}}`;
-    }
-
-
-    
     determineDate () {
         // get weekday from dueDate
         

@@ -4,6 +4,7 @@ $( document ).ready(function() {
     const taskList = new TaskManager
     const task=()=>{
         taskList.addTask()
+        taskList.save()
     }
     adjustTask=(cardId)=>{
         let card=taskList.getTaskById(cardId)
@@ -31,12 +32,13 @@ $( document ).ready(function() {
             $('#addTaskButton').css("display", '');
             $('#changeButton').css("display", 'none');
             $('#cancelButton').css("display", 'none');
+            taskList.save();
                 //remove and adjust button on card event listeners
-            $(`#rmvId${cardId}`).on('click', ()=>{
+            $(`#rmvId${card.cardId}`).on('click', ()=>{
                 taskList.removeTask(cardId)
-                $(`#cardId${cardId}`).remove()
+                $(`#cardId${card.cardId}`).remove()
             })
-            $(`#adjId${cardId}`).on('click', ()=>{
+            $(`#adjId${card.cardId}`).on('click', ()=>{
                 adjustTask(card.cardId);
             })
         })
