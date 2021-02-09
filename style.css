@@ -16,6 +16,7 @@ html {
 
 .container {
   max-width:1500px !important;
+  min-width: 1300px !important;
 }
 
 

@@ -16,7 +16,7 @@
   </head>
   <body>
     
-  
+  <div class="container">
     <div class="row" id="addTask">
       <div class="col text-center">
         <button  id="showFormButton" type="button" class="btn btn-warning btn-lg" data-toggle="collapse" data-target="#collapseAddTask" aria-expanded="false" aria-controls="collapseAddTask">Add new task</button>
@@ -92,6 +92,7 @@
         </div>
       </div>
     </div>
+  </div>
                             <!--***** CONTAINER FOR CARD COLUMNS ******-->
 
     <div class="container d-flex justify-content-around">
@@ -291,16 +292,7 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="hidden dropdown-menu">
-        <button class="hidden menu-btn">Open <</button>
-        <div class="hidden menu-content">
-            <a class="hidden links toDo" id="toDo${cardId}">To Do</a>
-            <a class="hidden links inProgress" id="inProgress${cardId}">In Progress</a>
-            <a class="hidden links stuck" id="stuck${cardId}">Stuck</a>
-            <a class="hidden links done" id="done${cardId}">Done</a>
-        </div>
-    </div>
+    
          
 
 
@@ -309,6 +301,16 @@
 
   </div>
 
+          </div>
+          <div class="row">
+            <div class="hidden dropdown-menu">
+              <button class="hidden menu-btn">Open <</button>
+              <div class="hidden menu-content">
+                  <a class="hidden links toDo" id="toDo${cardId}">To Do</a>
+                  <a class="hidden links inProgress" id="inProgress${cardId}">In Progress</a>
+                  <a class="hidden links stuck" id="stuck${cardId}">Stuck</a>
+                  <a class="hidden links done" id="done${cardId}">Done</a>
+              </div>
           </div>
           <!-- JavaScript Link -->
 
