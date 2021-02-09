@@ -14,21 +14,33 @@ html {
   width: 55%;
 }
 
-
+.container {
+  max-width:1500px !important;
+  min-width: 1300px !important;
+}
 
 
 .formContainer {
 
   height: 44rem;
   margin: 1rem auto;
-  background-color: blanchedalmond
+  background-color: blanchedalmond;
+  text-align: center;
 }
 .topItem {
   margin-top: 1.5rem;
 }
+
+.col_container {
+  width: 100%;
+}
+
 .cardContainer {
   margin: 0 auto
 }
+
+
+
 .bg-primary {
 
     background-color: cornflowerblue;

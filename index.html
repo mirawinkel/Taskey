@@ -16,7 +16,7 @@
   </head>
   <body>
     
-
+  <div class="container">
     <div class="row" id="addTask">
       <div class="col text-center">
         <button  id="showFormButton" type="button" class="btn btn-warning btn-lg" data-toggle="collapse" data-target="#collapseAddTask" aria-expanded="false" aria-controls="collapseAddTask">Add new task</button>
@@ -92,13 +92,57 @@
         </div>
       </div>
     </div>
+  </div>
                             <!--***** CONTAINER FOR CARD COLUMNS ******-->
 
+    <div class="container d-flex justify-content-around">
     <div class="row d-flex justify-content-around">
+
+
+
+      <!--****************************COLUMN 0 FOR DONE TASKS*****************-->
+
+      <div class="col-2 d-flex justify-content-center">        
+        <div class="row d-flex flex-column card-columns">
+          <h2 class="colName">Done</h2>
+          <div class="cardContainer" id="columnToday">
+
+           <!--***************card 0***************************-->
+
+           <div class="col-2">
+            <div class="color_done"> <!--to override the card color-->
+            <div class="card d-inline-block" style="width: 20rem;">
+              <div class="card-header">Jan 10
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Finish the book</h5>
+                <p class="card-text">Some quick example t.</p>
+                <button class="rmvBtn">Remove Task</button>
+                <div class="form-group">
+                  <select class="form-control" id="Status">
+                    <option class="toDo">To Do</option>
+                    <option class="inProgress">In Progress</option>                            
+                    <option class="stuck">Stuck</option>
+                    <option class="done">Done</option>
+                  </select>
+                </div>
+              </div>
+              <div class="card-footer bg-white">Lena
+              </div>
+            </div>
+          </div>
+          </div>
+
+          <!--****** COLUMN ENDING *******-->
+
+        </div>
+      </div>
+    </div>
+          
 
                           <!--********  COLUMN 1  ********-->
 
-      <div class="col-4 d-flex justify-content-center">
+      <div class="col-2 d-flex justify-content-center">
         
         <div class="row d-flex flex-column card-columns">
           <h2 class="colName">Today</h2>
@@ -107,7 +151,7 @@
             
             <!--**** CARD 1 ****-->
             
-            <div class="col-3">
+            <div class="col-2">
               <div class="color_toDo"> <!--to override the card color-->
               <div class="card d-inline-block" style="width: 20rem;">
                 <div class="card-header">Jan 10
@@ -134,7 +178,7 @@
               <!--**** CARD 2 ****-->
             
               
-            <div class="col-3">
+            <div class="col-2">
               <div class="color_toDo"> <!--to override the card color-->
               <div class="card d-inline-block" style="width: 20rem;">
                 <div class="card-header">Jan 10
@@ -166,14 +210,14 @@
     
                             <!--******* COLUMN 2 STARTS HERE *******-->
 
-      <div class="col-4">
+      <div class="col-2 d-flex justify-content-center">
         <div class="row d-flex flex-column card-columns">
           <h2 class="colName">This Week</h2>
           <div class="cardContainer" id="columnThisWeek">
 
               <!--**** CARD 4 ****-->
 
-            <div class="col-3">
+            <div class="col-2">
               <div class="color_done"> <!--to override the card color-->
               <div class="card d-inline-block" style="width: 20rem;">
                 <div class="card-header">Jan 11
@@ -207,14 +251,14 @@
       </div>
                             <!--******* COLUMN 3 STARTS HERE *******-->
 
-      <div class="col-4">
+      <div class="col-2 d-flex justify-content-center">
         <div class="row d-flex flex-column card-columns">
           <h2 class="colName">Later</h2>
           <div class="cardContainer" id="columnLater">
 
                     <!--**** CARD 6 ****-->
 
-            <div class="col-3">
+            <div class="col-2">
               <div class="color_inProgress"> <!--to override the card color-->
               <div class="card d-inline-block " style="width: 20rem;">
                 <div class="card-header">Jan 22
@@ -248,24 +292,25 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="hidden dropdown-menu">
-        <button class="hidden menu-btn">Open <</button>
-        <div class="hidden menu-content">
-            <a class="hidden links toDo" id="toDo${cardId}">To Do</a>
-            <a class="hidden links inProgress" id="inProgress${cardId}">In Progress</a>
-            <a class="hidden links stuck" id="stuck${cardId}">Stuck</a>
-            <a class="hidden links done" id="done${cardId}">Done</a>
-        </div>
-    </div>
+    
          
 
 
 
 
 
-      
+  </div>
 
+          </div>
+          <div class="row">
+            <div class="hidden dropdown-menu">
+              <button class="hidden menu-btn">Open <</button>
+              <div class="hidden menu-content">
+                  <a class="hidden links toDo" id="toDo${cardId}">To Do</a>
+                  <a class="hidden links inProgress" id="inProgress${cardId}">In Progress</a>
+                  <a class="hidden links stuck" id="stuck${cardId}">Stuck</a>
+                  <a class="hidden links done" id="done${cardId}">Done</a>
+              </div>
           </div>
           <!-- JavaScript Link -->
 

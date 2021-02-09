@@ -2,7 +2,8 @@
 drawCard=(card, cardId)=>{
     const taskCard = card
     let cardDiv = document.createElement('div');
-    cardDiv.setAttribute("id", `cardId${cardId}`); 
+    cardDiv.setAttribute("id", `cardId${cardId}`);
+    cardDiv.setAttribute("class", "col-2"); 
     cardDiv.innerHTML = `
         <div class="color_${taskCard.status}" id="statNum${cardId}"> 
             <div class="card d-inline-block" style="width: 20rem;">
