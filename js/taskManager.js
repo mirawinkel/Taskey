@@ -58,9 +58,11 @@ class TaskManager {
             if (this._tasks[i].cardId == card.cardId) {
                 this._tasks.splice(i, 1, card)
                 console.log(`Task ${i + 1} replaced`)
+                break;
             }
-            console.log(this.tasks)
         }
+
+        console.log(this.tasks);
     }
     removeTask(cardId){
         const id = cardId

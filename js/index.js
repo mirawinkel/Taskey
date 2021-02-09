@@ -19,7 +19,7 @@ $( document ).ready(function() {
         $('#changeButton').css("display", '');
         $('#cancelButton').css("display", '');
         //Set Adjust task button in entry form event listener to update card
-        $('#changeButton').on('click', ()=>{
+        $('#changeButton').one('click', ()=>{
             //store task values from fields as a task card
             card = taskList.changeTask(card.cardId);
             //adjust task array
