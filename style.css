@@ -108,11 +108,11 @@ p {
   -o-transition: all 0.15s ease-in-out;
 }
 .color_done .card:hover {
-  box-shadow: .2rem .2rem .8rem rgb(99, 245, 136);
+  box-shadow: .2rem .2rem .8rem #8fef8e;
 }
 
 .color_inProgress .card {
-  background-color: rgb(114, 157, 250);
+  background-color: #92c5ea;
   transition: all 0.15s ease-in-out;
   -webkit-transition: all 0.15s ease-in-out;
   -moz-transition: all 0.15s ease-in-out;
@@ -123,7 +123,7 @@ p {
   box-shadow: .2rem .2rem .8rem rgb(114, 157, 250);
 }
 .color_toDo .card {
-  background-color: rgb(247, 245, 100);
+  background-color: 	#fffd8d;
   transition: all 0.15s ease-in-out;
   -webkit-transition: all 0.15s ease-in-out;
   -moz-transition: all 0.15s ease-in-out;
@@ -135,7 +135,7 @@ p {
 }
 
 .color_stuck .card {
-  background-color: rgb(250, 146, 134);
+  background-color: #dd7f9a;
   transition: all 0.15s ease-in-out;
   -webkit-transition: all 0.15s ease-in-out;
   -moz-transition: all 0.15s ease-in-out;
@@ -143,7 +143,7 @@ p {
   -o-transition: all 0.15s ease-in-out;
 }
 .color_stuck .card:hover {
-  box-shadow: .2rem .2rem .8rem rgb(250, 146, 134);
+  box-shadow: .2rem .2rem .8rem #dd7f9a;
 }
 /************ Dropdown Progress Selector ***********/
 .menu-btn {
@@ -203,7 +203,7 @@ p {
   margin: 0 0.1em 0.1em 0;
   border-radius: .3rem;
   box-sizing: border-box;
-  background-color: rgb(180, 36, 36);
+  background-color: #c93372;
   text-decoration: none;
   text-shadow: .08rem .08rem .05rem black;
   font-size: 1rem;
@@ -231,7 +231,7 @@ p {
   margin: 0 0.1em 0.1em 0;
   border-radius: .3rem;
   box-sizing: border-box;
-  background-color: rgb(127, 36, 180);
+  background-color: rgb(175, 92, 223);
   text-decoration: none;
   text-shadow: .08rem .08rem .05rem black;
   font-size: 1rem;
