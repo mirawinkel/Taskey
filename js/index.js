@@ -22,6 +22,7 @@ $( document ).ready(function() {
         $('#changeButton').one('click', ()=>{
             //store task values from fields as a task card
             card = taskList.changeTask(card.cardId);
+            card.columnValue = determineDate(card, card.status);
             //adjust task array
             taskList.replaceTask(card);
             //remove old card, render new updates and clear entry form
@@ -62,4 +63,8 @@ $( document ).ready(function() {
             showFormButton.innerHTML = 'Add new task';
         }
     }
+    
 });
+
+taskList.load();
+taskList.render();

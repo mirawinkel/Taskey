@@ -23,7 +23,7 @@ drawCard=(card, cardId)=>{
     return cardDiv
 }
 // Function to determine column value in relation to date due and todays date
-determineDate=(dueBy)=>{
+determineDate=(dueBy, status)=>{
 // get weekday from dueDate
     let dueDay = dueBy
     dueDay = dueDay.replace(/\//g, ',')
@@ -39,7 +39,7 @@ determineDate=(dueBy)=>{
         return 'columnThisWeek'
     } else if (day > (date +7)) {
         return 'columnLater'
-    }
+    } 
 }
 //adjust card function
 
@@ -125,6 +125,13 @@ class TaskManager {
             }
         return newCard
     }
+    render(){
+        let card
+        for (let i = 0; i < this.tasks.length; i++) {
+            card = this.tasks[i]
+            drawCard(card, card.cardId)
+        };
+    }
     getTaskById(id){
         let foundTask
         for (let i = 0; i < this._tasks.length; i++) {
@@ -144,37 +151,27 @@ class TaskManager {
         let tasksJSON
         let currentId
         tasksJSON = localStorage.getItem('tasks')
-        this.tasks = JSON.parse(tasksJSON)
+        const map = new Map(JSON.parse(tasksJSON))
+        this.tasks = map
         currentId = localStorage.getItem('currentId')
         currentId = parseInt(currentId)
         this.currentId = currentId
     }
 }
+const unitTest =() => {
+    const ownerName = 'me'
+    const taskName = 'me'
+    const description = 'me'
+    const status = 'me'
+    const dueDate = 'me'
 
-// const ownerName = 'me'
-//         const taskName = 'me'
-//         const description = 'me'
-//         const status = 'me'
-//         const dueDate = 'me'
+let taskey = new TaskManager
 
-// let taskey = new TaskManager
+taskey.addTask()
+taskey.addTask()
+taskey.addTask()
 
-// taskey.addTask()
-// taskey.addTask()
-// taskey.addTask()
-// const newCard = {
-//     cardId: 2,
-//     ownerName: ownerName,
-//     taskName: taskName,
-//     description: description,
-//     status: status,
-//     dueDate: dueDate,
-//     columnValue: null
-//     }
-// taskey.save()
-// taskey.tasks = []
-// console.log(taskey._tasks)
-// taskey.load()
-// console.log('test')
-// console.log(taskey.tasks)
-
+console.log('test')
+console.log(taskey.tasks)
+taskey.render()
+}
