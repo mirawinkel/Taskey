@@ -1,11 +1,17 @@
 $( document ).ready(function() {
     console.log( "ready!" );
     //instantiate new TaskManager object
-    const taskList = new TaskManager
+    const taskList = new TaskManager();
+    taskList.load();
+    taskList.render();
+    
+    
     const task=()=>{
         taskList.addTask()
         taskList.save()
     }
+    
+
     adjustTask=(cardId)=>{
         let card=taskList.getTaskById(cardId)
         //Repopulates form fields with values from card
@@ -66,5 +72,3 @@ $( document ).ready(function() {
     
 });
 
-taskList.load();
-taskList.render();
