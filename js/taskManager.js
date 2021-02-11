@@ -1,6 +1,6 @@
 //card render function
-drawCard=(card, cardId)=>{
-    const taskCard = card
+drawCard=(taskCard)=>{    
+    const cardId = taskCard.cardId;
     let cardDiv = document.createElement('div');
     cardDiv.setAttribute("id", `cardId${cardId}`);
     cardDiv.setAttribute("class", "col-2"); 
@@ -20,8 +20,22 @@ drawCard=(card, cardId)=>{
                 </div>
             </div>
         </div>`;
-    return cardDiv
+    const columnValue = determineDate(taskCard.dueDate);
+
+    document.getElementById(columnValue).appendChild(cardDiv);
+
+    //remove and adjust button on card event listeners        
+    $(`#rmvId${cardId}`).on('click', ()=>{
+        $(`#cardId${cardId}`).remove();
+        taskList.removeTask(cardId);            
+    });
+
+    $(`#adjId${cardId}`).on('click', ()=>{
+        adjustTask(cardId);
+    });    
 }
+
+
 // Function to determine column value in relation to date due and todays date
 determineDate=(dueBy, status)=>{
 // get weekday from dueDate
@@ -44,9 +58,9 @@ determineDate=(dueBy, status)=>{
 //adjust card function
 
 class TaskManager {
-    constructor(currentId = 0, tasks = []) {
-        this._currentId = currentId
-        this._tasks = tasks
+    constructor() {
+        this._currentId = 0;
+        this._tasks = new Map();
     }
     get currentId() { return this._currentId }
     set currentId(value) { this._currentId = value }
@@ -54,57 +68,39 @@ class TaskManager {
     set tasks(value) { this._tasks = value }
 
     replaceTask(task) {
-        const card = task
-        for (let i = 0; i < this._tasks.length; i++) {
-            if (this._tasks[i].cardId == card.cardId) {
-                this._tasks.splice(i, 1, card)
-                console.log(`Task ${i + 1} replaced`)
-                break;
-            }
-        }
-
+        this._tasks.set(task.cardId, task);      
+        console.log(`Task ${task.cardId} replaced`);        
+    }
+    
+    
+    removeTask(cardId){
+        this._tasks.delete(cardId);
+        console.log(`Task ${cardId} deleted`);  
         console.log(this.tasks);
     }
-    removeTask(cardId){
-        const id = cardId
-        const newTasks = []
-        for (let i = 0; i < this._tasks.length; i++) {
-            if (this._tasks[i].cardId != id) {
-                newTasks.push(this._tasks[i])
-            }
-        }
-        this.tasks = newTasks
-        console.log(this.tasks)
-    }
+
+
     addTask(){
-        const ownerName = document.getElementById("Name").value
-        const taskName = document.getElementById("taskName").value
-        const description = document.getElementById("Description").value
-        const status = document.getElementById("Status").value
-        const dueDate = document.getElementById("DueDateInput").value
-        console.log(`Adding new task ${ownerName}, ${taskName}, ${description}, ${status}, ${dueDate}`)
-        this._currentId++
-        const cardId = this.currentId
-        const columnValue = determineDate(dueDate)
+        const ownerName = document.getElementById("Name").value;
+        const taskName = document.getElementById("taskName").value;
+        const description = document.getElementById("Description").value;
+        const status = document.getElementById("Status").value;
+        const dueDate = document.getElementById("DueDateInput").value;
+        console.log(`Adding new task ${ownerName}, ${taskName}, ${description}, ${status}, ${dueDate}`);
+        this._currentId++;
+        const cardId = this.currentId;
+        
         const newCard = {
             cardId: cardId,
             ownerName: ownerName,
             taskName: taskName,
             description: description,
             status: status,
-            dueDate: dueDate,
-            columnValue: columnValue
-            }
-        this._tasks.push(newCard)
-        document.getElementById(`${newCard.columnValue}`).appendChild(drawCard(newCard, cardId))
-    //remove and adjust button on card event listeners
-        $(`#rmvId${cardId}`).on('click', ()=>{
-            $(`#cardId${cardId}`).remove()
-            taskList.removeTask(cardId)
-        })
-        $(`#adjId${cardId}`).on('click', ()=>{
-            adjustTask(cardId);
-        })
+            dueDate: dueDate            
+            };
+        this._tasks.set(cardId, newCard);
+        drawCard(newCard);
+        
         document.getElementById('form').reset()
     }
     changeTask(cardId){
@@ -125,37 +121,33 @@ class TaskManager {
             }
         return newCard
     }
+
+
     render(){
-        let card
-        for (let i = 0; i < this.tasks.length; i++) {
-            card = this.tasks[i]
-            drawCard(card, card.cardId)
-        };
+        this._tasks.forEach((value, key, map) => {
+            drawCard(value);  
+        });        
     }
+
+
     getTaskById(id){
-        let foundTask
-        for (let i = 0; i < this._tasks.length; i++) {
-            if (this._tasks[i].cardId == id) {
-                foundTask = this._tasks[i]
-            }
-        }
-        return foundTask
-    }
+        return this._tasks.get(id);           
+    }  
     save(){
-        const tasksJSON = JSON.stringify(this.tasks)
-        localStorage.setItem('tasks', tasksJSON)
-        const currentId = this._currentId.toString()
-        localStorage.setItem('currentId', currentId)
+
+        let tasksJSON = JSON.stringify(Array.from(this._tasks.entries()));        
+        localStorage.setItem('tasks', tasksJSON);
+        const currentIdString = this._currentId.toString();
+        localStorage.setItem('currentId', currentIdString);
     }
     load(){
-        let tasksJSON
-        let currentId
-        tasksJSON = localStorage.getItem('tasks')
-        const map = new Map(JSON.parse(tasksJSON))
-        this.tasks = map
-        currentId = localStorage.getItem('currentId')
-        currentId = parseInt(currentId)
-        this.currentId = currentId
+        
+        let tasksJSON = localStorage.getItem('tasks');
+        this._tasks = new Map(JSON.parse(tasksJSON));        
+        let currentIdString = localStorage.getItem('currentId');
+        this._currentId = parseInt(currentIdString);
+
+        console.log(`Loaded tasks ${this._tasks} and current ID ${this._currentId}`);   
     }
 }
 const unitTest =() => {
