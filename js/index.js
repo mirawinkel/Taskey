@@ -28,26 +28,18 @@ $( document ).ready(function() {
         $('#changeButton').one('click', ()=>{
             //store task values from fields as a task card
             card = taskList.changeTask(card.cardId);
-            card.columnValue = determineDate(card, card.status);
+            card.columnValue = determineDate(card.dueDate, card.status);
             //adjust task array
             taskList.replaceTask(card);
             //remove old card, render new updates and clear entry form
             $(`#cardId${card.cardId}`).remove();
-            document.getElementById(`${card.columnValue}`).appendChild(drawCard(card, card.cardId))
+            drawCard(card);
             document.getElementById('form').reset();
             //switch buttons
             $('#addTaskButton').css("display", '');
             $('#changeButton').css("display", 'none');
             $('#cancelButton').css("display", 'none');
-            taskList.save();
-                //remove and adjust button on card event listeners
-            $(`#rmvId${card.cardId}`).on('click', ()=>{
-                taskList.removeTask(cardId)
-                $(`#cardId${card.cardId}`).remove()
-            })
-            $(`#adjId${card.cardId}`).on('click', ()=>{
-                adjustTask(card.cardId);
-            })
+            taskList.save();                
         })
     }
     //event listener for add task

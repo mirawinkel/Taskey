@@ -20,8 +20,22 @@ drawCard=(taskCard)=>{
                 </div>
             </div>
         </div>`;
-    return cardDiv;
+    const columnValue = determineDate(taskCard.dueDate);
+
+    document.getElementById(columnValue).appendChild(cardDiv);
+
+    //remove and adjust button on card event listeners        
+    $(`#rmvId${cardId}`).on('click', ()=>{
+        $(`#cardId${cardId}`).remove();
+        taskList.removeTask(cardId);            
+    });
+
+    $(`#adjId${cardId}`).on('click', ()=>{
+        adjustTask(cardId);
+    });    
 }
+
+
 // Function to determine column value in relation to date due and todays date
 determineDate=(dueBy, status)=>{
 // get weekday from dueDate
@@ -75,26 +89,18 @@ class TaskManager {
         console.log(`Adding new task ${ownerName}, ${taskName}, ${description}, ${status}, ${dueDate}`);
         this._currentId++;
         const cardId = this.currentId;
-        const columnValue = determineDate(dueDate);
+        
         const newCard = {
             cardId: cardId,
             ownerName: ownerName,
             taskName: taskName,
             description: description,
             status: status,
-            dueDate: dueDate,
-            columnValue: columnValue
+            dueDate: dueDate            
             };
         this._tasks.set(cardId, newCard);
-        document.getElementById(`${newCard.columnValue}`).appendChild(drawCard(newCard));
-    //remove and adjust button on card event listeners
-        $(`#rmvId${cardId}`).on('click', ()=>{
-            $(`#cardId${cardId}`).remove()
-            taskList.removeTask(cardId)
-        })
-        $(`#adjId${cardId}`).on('click', ()=>{
-            adjustTask(cardId);
-        })
+        drawCard(newCard);
+        
         document.getElementById('form').reset()
     }
     changeTask(cardId){
@@ -116,10 +122,10 @@ class TaskManager {
         return newCard
     }
 
-    
+
     render(){
         this._tasks.forEach((value, key, map) => {
-            document.getElementById(`${value.columnValue}`).appendChild(drawCard(value));  
+            drawCard(value);  
         });        
     }
 
