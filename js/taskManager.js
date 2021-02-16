@@ -20,7 +20,7 @@ drawCard=(taskCard)=>{
                 </div>
             </div>
         </div>`;
-    const columnValue = determineDate(taskCard.dueDate);
+    const columnValue = determineDate(taskCard.dueDate, taskCard.status);
 
     document.getElementById(columnValue).appendChild(cardDiv);
 
@@ -38,6 +38,9 @@ drawCard=(taskCard)=>{
 
 // Function to determine column value in relation to date due and todays date
 determineDate=(dueBy, status)=>{
+    if (status == 'done') {
+        return 'columnDone';
+    }
 // get weekday from dueDate
     let dueDay = dueBy
     dueDay = dueDay.replace(/\//g, ',')
@@ -53,7 +56,9 @@ determineDate=(dueBy, status)=>{
         return 'columnThisWeek'
     } else if (day > (date +7)) {
         return 'columnLater'
-    } 
+    }
+
+    return 'columnToday';
 }
 //adjust card function
 
