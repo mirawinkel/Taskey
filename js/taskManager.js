@@ -151,13 +151,20 @@ class TaskManager {
 
         document.getElementById(columnValue).appendChild(cardDiv);
 
-        //remove and adjust button on card event listeners        
+        //remove button on card event listener        
         $(`#rmvId${cardId}`).on('click', ()=>{
             $(`#cardId${cardId}`).remove();
             this.removeTask(cardId);            
         });
 
+        //adjust button on card event listener - moves to top of screen, expands the form if closed, manages the button label
+   
         $(`#adjId${cardId}`).on('click', ()=>{
+            window.scrollTo(0, 0);
+            document.getElementById("collapseAddTask").classList.add("show");
+            isFormVisible = true;
+            showFormButton.innerHTML = 'Close';
+
             adjustTask(cardId);
         });    
     }
