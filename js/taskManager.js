@@ -1,39 +1,3 @@
-//card render function
-drawCard=(taskCard)=>{    
-    const cardId = taskCard.cardId;
-    let cardDiv = document.createElement('div');
-    cardDiv.setAttribute("id", `cardId${cardId}`);
-    cardDiv.setAttribute("class", "col-2"); 
-    cardDiv.innerHTML = `
-        <div class="color_${taskCard.status}" id="statNum${cardId}"> 
-            <div class="card d-inline-block" style="width: 20rem;">
-                <div class="card-header" id="dueNum${cardId}">
-                    ${taskCard.dueDate}
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title" id="nameNum${cardId}">${taskCard.taskName}</h5>
-                    <p class="card-text" id="descNum${cardId}">${taskCard.description}</p>
-                    <button class="rmvBtn" id="rmvId${cardId}">Remove Task</button>
-                    <button class="adjustBtn" id="adjId${cardId}" value="${cardId}">Adjust Task</button>
-                </div>
-                <div class="card-footer bg-white" id="ownerNum${cardId}">${taskCard.ownerName}
-                </div>
-            </div>
-        </div>`;
-    const columnValue = determineDate(taskCard.dueDate, taskCard.status);
-
-    document.getElementById(columnValue).appendChild(cardDiv);
-
-    //remove and adjust button on card event listeners        
-    $(`#rmvId${cardId}`).on('click', ()=>{
-        $(`#cardId${cardId}`).remove();
-        taskList.removeTask(cardId);            
-    });
-
-    $(`#adjId${cardId}`).on('click', ()=>{
-        adjustTask(cardId);
-    });    
-}
 
 
 // Function to determine column value in relation to date due and todays date
@@ -82,6 +46,7 @@ class TaskManager {
         this._tasks.delete(cardId);
         console.log(`Task ${cardId} deleted`);  
         console.log(this.tasks);
+        this.save();
     }
 
 
@@ -104,7 +69,7 @@ class TaskManager {
             dueDate: dueDate            
             };
         this._tasks.set(cardId, newCard);
-        drawCard(newCard);
+        this.drawCard(newCard);
         
         document.getElementById('form').reset()
     }
@@ -130,7 +95,7 @@ class TaskManager {
 
     render(){
         this._tasks.forEach((value, key, map) => {
-            drawCard(value);  
+            this.drawCard(value);  
         });        
     }
 
@@ -153,7 +118,53 @@ class TaskManager {
         this._currentId = parseInt(currentIdString);
 
         console.log(`Loaded tasks ${this._tasks} and current ID ${this._currentId}`);   
+    
     }
+
+    //card render method
+
+    drawCard(taskCard) {    
+        const cardId = taskCard.cardId;
+        let cardDiv = document.createElement('div');
+        cardDiv.setAttribute("id", `cardId${cardId}`);
+        cardDiv.setAttribute("class", "col-2"); 
+        cardDiv.innerHTML = `
+            <div class="color_${taskCard.status}" id="statNum${cardId}"> 
+                <div class="card d-inline-block" style="width: 20rem;">
+                    <div class="card-header" id="dueNum${cardId}">
+                        ${taskCard.dueDate}
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title" id="nameNum${cardId}">${taskCard.taskName}</h5>
+                        <p class="card-text" id="descNum${cardId}">${taskCard.description}</p>
+                        <button class="rmvBtn" id="rmvId${cardId}">Remove Task</button>
+                        <button class="adjustBtn" id="adjId${cardId}" value="${cardId}">Adjust Task</button>
+                    </div>
+                    <div class="card-footer bg-white" id="ownerNum${cardId}">${taskCard.ownerName}
+                    </div>
+                </div>
+            </div>`;
+        const columnValue = determineDate(taskCard.dueDate, taskCard.status);
+
+        document.getElementById(columnValue).appendChild(cardDiv);
+
+        //remove and adjust button on card event listeners        
+        $(`#rmvId${cardId}`).on('click', ()=>{
+            $(`#cardId${cardId}`).remove();
+            this.removeTask(cardId);            
+        });
+
+        $(`#adjId${cardId}`).on('click', ()=>{
+            adjustTask(cardId);
+        });    
+    }
+
+
+
+
+
+
+
 }
 const unitTest =() => {
     const ownerName = 'me'

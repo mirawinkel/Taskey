@@ -33,7 +33,7 @@ $( document ).ready(function() {
             taskList.replaceTask(card);
             //remove old card, render new updates and clear entry form
             $(`#cardId${card.cardId}`).remove();
-            drawCard(card);
+            taskList.drawCard(card);
             document.getElementById('form').reset();
             //switch buttons
             $('#addTaskButton').css("display", '');
