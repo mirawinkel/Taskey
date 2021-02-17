@@ -3,15 +3,9 @@ $( document ).ready(function() {
     //instantiate new TaskManager object
     const taskList = new TaskManager();
     taskList.load();
-    taskList.render();
+    taskList.render();   
+       
     
-    
-    const task=()=>{
-        taskList.addTask()
-        taskList.save()
-    }
-    
-
     adjustTask=(cardId)=>{
         let card = taskList.getTaskById(cardId);
         //Repopulates form fields with values from card
@@ -45,7 +39,16 @@ $( document ).ready(function() {
         })
     }
     //event listener for add task
-    $("#addTaskButton").on('click',()=>{task()})
+    document.getElementById("form").onsubmit = (event) => {
+
+        //prevents the default behavior of submit button
+        event.preventDefault();
+        if (document.getElementById('form').checkValidity()) {
+
+            taskList.addTask();
+            taskList.save();
+        }
+    };    
 
     // Event listener for cancel button
     $('#cancelButton').on('click', () => {
@@ -66,6 +69,9 @@ $( document ).ready(function() {
             showFormButton.innerHTML = 'Add new task';
         }
     }
+
+    // console-accessible method of population
+    
     quickAdd = () => {
         const owners = ['Olga', 'Volha', 'Mira', 'Jenna', 'Daoud', 'Rita']
         const tasks = ['Help kids', 'Groceries', 'Handle makeup', 'Pickup prescriptions', 'Recode website', 'Job applications'];
@@ -79,9 +85,10 @@ $( document ).ready(function() {
             $('#Description').val(`${desc[i]}`);
             $('#Status').val(`${status[i]}`);
             $('#DueDateInput').val(`${due[i]}`);
-            task();
+            taskList.addTask();            
         }
-    
+        
+        taskList.save();
     }
     
 });
