@@ -19,10 +19,6 @@ class TaskCard {
     set dueDate(value) { this._dueDate = value}
 
 }
-
-
-
-
 const taskForm = {
 
     name:'',
