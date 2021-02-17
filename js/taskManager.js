@@ -136,7 +136,7 @@ class TaskManager {
         cardDiv.setAttribute("id", `cardId${cardId}`);
         cardDiv.setAttribute("class", "col-2"); 
         cardDiv.innerHTML = `
-            <div class="color_${taskCard.status}" id="statNum${cardId}"> 
+            <div class="color_${taskCard.status} mr-2 ml-2" id="statNum${cardId}"> 
                 <div class="card d-inline-block" style="width: 20rem;">
                     <div class="card-header" id="dueNum${cardId}">
                         ${taskCard.dueDate}
