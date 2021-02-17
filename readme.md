@@ -8,7 +8,7 @@ Taskey is a **web based** application that helps to organize your daily, weekly,
 
 ---
 
-Hosted @ https://reflectionwebdesign.com/Final-Project
+Hosted @ https://reflectionwebdesign.com/Taskey
 
 ---
 
