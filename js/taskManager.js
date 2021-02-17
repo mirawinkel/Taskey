@@ -5,24 +5,25 @@ determineDate=(dueBy, status)=>{
     if (status == 'done') {
         return 'columnDone';
     }
-// get weekday from dueDate
-    let dueDay = dueBy
-    dueDay = dueDay.replace(/\//g, ',')
-    const dateValues = dueDay.split(',')
-    const day = dateValues[1]
-// get today's date
-    const today = new Date()
-    const date = today.getDate()
-// compare today's date to due date and assign column value
-    if (date == day) {
+    // get the end of today's day, the due date, and the end of a week's time as milliseconds
+    let dueWhen = new Date(dueBy);
+    let endDay = new Date();
+    let endWeek = new Date();
+    dueWhen.setHours(23, 59, 59, 999);
+    endDay.setHours(23, 59, 59, 999);
+    endWeek.setHours(23, 59, 59, 999);
+    dueWhen = dueWhen.getTime();
+    endDay = endDay.getTime();
+    endWeek = endWeek.getTime();
+    endWeek = endWeek + (1000 * 60 * 60 * 24 * 7)
+    //compare values and return a column placement
+    if (endDay === dueWhen) {
         return 'columnToday'
-    } else if (day <= (date + 7)) {
+    }   else if (dueWhen < endWeek) {
         return 'columnThisWeek'
-    } else if (day > (date +7)) {
+    }   else {
         return 'columnLater'
     }
-
-    return 'columnToday';
 }
 //adjust card function
 
