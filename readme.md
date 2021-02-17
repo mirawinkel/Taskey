@@ -42,6 +42,9 @@ If you decide you don't want to adjust the task, you can click the cancel button
 Tasks are easily removed from the column area by clicking the <span style="color:#9F000F">Remove Task</span> button on the cards themselves. Be careful though, when you remove a task it is completely removed from the memory.
 
 ---
+Taskey utilizes the jQuery 3.5 and Bootstrap 4.3 frameworks
+
+---
 
 ### Contributors:
 * Mira Winkel (https://reflectionwebdesign.com) 
