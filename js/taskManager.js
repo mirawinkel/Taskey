@@ -119,6 +119,10 @@ class TaskManager {
         this._tasks = new Map(JSON.parse(tasksJSON));        
         let currentIdString = localStorage.getItem('currentId');
         this._currentId = parseInt(currentIdString);
+        
+        if (!Number.isInteger(this._currentId)) {
+            this._currentId = 0;
+        }
 
         console.log(`Loaded tasks ${this._tasks} and current ID ${this._currentId}`);   
     
