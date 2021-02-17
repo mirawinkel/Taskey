@@ -61,6 +61,23 @@ $( document ).ready(function() {
             showFormButton.innerHTML = 'Add new task';
         }
     }
+    quickAdd = () => {
+        const owners = ['Olga', 'Volha', 'Mira', 'Jenna', 'Daoud', 'Rita']
+        const tasks = ['Help kids', 'Groceries', 'Handle makeup', 'Pickup prescriptions', 'Recode website', 'Job applications'];
+        const desc = ['Help the kids with homework and go over their report grades', 'Go shopping for groceries', 'Organize the makeup desk and, clean the brushes, check products for expiration dates', 'Get prescriptions for herself and grandma at the pharmacy', 'Fix the issues with carousels not showing as intended and adjust the button colors', 'Put in job applications and check back on internship application status. Write some thank you letters too'];
+        const status = ['done', 'toDo', 'inProgress', 'toDo', 'stuck', 'inProgress',];
+        const due = ['2/21/2021', '2/16/2021', '2/28/2021', '2/17/2021', '2/25/2021', '2/22/2021'];
+    
+        for (let i = 0; i < status.length; i++) {
+            $('#Name').val(`${owners[i]}`);
+            $('#taskName').val(`${tasks[i]}`);
+            $('#Description').val(`${desc[i]}`);
+            $('#Status').val(`${status[i]}`);
+            $('#DueDateInput').val(`${due[i]}`);
+            task();
+        }
+    
+    }
     
 });
 

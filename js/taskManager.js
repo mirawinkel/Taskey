@@ -19,6 +19,8 @@ determineDate=(dueBy, status)=>{
     //compare values and return a column placement
     if (endDay === dueWhen) {
         return 'columnToday'
+    }   else if (endDay > dueWhen) {
+        return 'columnDone'
     }   else if (dueWhen < endWeek) {
         return 'columnThisWeek'
     }   else {
