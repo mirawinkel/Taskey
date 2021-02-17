@@ -15,7 +15,7 @@ Hosted @ https://reflectionwebdesign.com/Final-Project
 ## <span style="color:#79BAEC">HOW IT WORKS
 Tasks are entered in using our intuitive entry form. When your task looks exactly how you want it, click the Add Task button to add it to your list. It will automatically be assigned to the appropriate column correlating to it's due date.
 
-![Entry Form](https://github.com/mirawinkel/Final-Project/blob/main/img/BasicForm.png)
+![Entry Form](https://reflectionwebdesign.com/Final-Project/img/BasicForm.png)
 
 Taskey's color coding system is designed to help you quickly recognize the status of your to do list items.
 
@@ -27,7 +27,7 @@ Taskey's color coding system is designed to help you quickly recognize the statu
 
 * <span style="color:#6AFB92"> Green for Done</span>
 
-![Task Cards](https://github.com/mirawinkel/Final-Project/blob/main/img/TaskCards.png)
+![Task Cards](https://reflectionwebdesign.com/Final-Project/img/TaskCards.png)
 
 Cards Marked <span style="color:#6AFB92">Done</span>, or who are older than today's date, are moved to the left column signifying that they are done, or that their time window is expired.
 
@@ -35,7 +35,7 @@ Tasks can be adjusted, or have their status changed by clicking on the <span sty
 When clicked, the card information is moved into the entry form, and the adjust task button replaces the add task button.
 When everything is adjusted to your liking, click the adjust task button under the entry fields to change the card within the list area.
 
-![Adjust task form](https://github.com/mirawinkel/Final-Project/blob/main/img/TaskeyForm.png)
+![Adjust task form](https://reflectionwebdesign.com/Final-Project/img/TaskeyForm.png)
 
 If you decide you don't want to adjust the task, you can click the cancel button to clear the form fields preparing you for a new task.
 
