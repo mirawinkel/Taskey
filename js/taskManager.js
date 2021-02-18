@@ -130,7 +130,17 @@ class TaskManager {
 
     //card render method
 
-    drawCard(taskCard) {    
+    drawCard(taskCard) {
+        let cardStatus = ""
+        if (taskCard.status === "toDo") {
+            cardStatus = "To Do"
+        }   else if (taskCard.status === "inProgress") {
+            cardStatus = "In Progress"
+        }   else if (taskCard.status === "stuck") {
+            cardStatus = "Stuck"
+        }   else if (taskCard.status === "done") {
+            cardStatus = "Done"
+        }
         const cardId = taskCard.cardId;
         let cardDiv = document.createElement('div');
         cardDiv.setAttribute("id", `cardId${cardId}`);
@@ -139,13 +149,14 @@ class TaskManager {
             <div class="color_${taskCard.status} mr-2 ml-2" id="statNum${cardId}"> 
                 <div class="card d-inline-block" style="width: 20rem;">
                     <div class="card-header" id="dueNum${cardId}">
-                        ${taskCard.dueDate}
+                        <h5>${taskCard.dueDate}</h5>
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title" id="nameNum${cardId}">${taskCard.taskName}</h5>
+                        <h4 class="card-title" id="nameNum${cardId}">${taskCard.taskName}</h4>
                         <p class="card-text" id="descNum${cardId}">${taskCard.description}</p>
-                        <button class="rmvBtn" id="rmvId${cardId}">Remove Task</button>
+                        <button class="rmvBtn mb-3" id="rmvId${cardId}">Remove Task</button>
                         <button class="adjustBtn" id="adjId${cardId}" value="${cardId}">Adjust Task</button>
+                        <h5>${cardStatus}</h5>
                     </div>
                     <div class="card-footer bg-white" id="ownerNum${cardId}">${taskCard.ownerName}
                     </div>
@@ -172,14 +183,9 @@ class TaskManager {
             adjustTask(cardId);
         });    
     }
-
-
-
-
-
-
-
 }
+
+
 const unitTest =() => {
     const ownerName = 'me'
     const taskName = 'me'
