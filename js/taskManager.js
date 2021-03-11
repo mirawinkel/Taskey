@@ -184,22 +184,3 @@ class TaskManager {
         });    
     }
 }
-
-
-const unitTest =() => {
-    const ownerName = 'me'
-    const taskName = 'me'
-    const description = 'me'
-    const status = 'me'
-    const dueDate = 'me'
-
-let taskey = new TaskManager
-
-taskey.addTask()
-taskey.addTask()
-taskey.addTask()
-
-console.log('test')
-console.log(taskey.tasks)
-taskey.render()
-}
